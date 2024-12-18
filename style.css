@@ -24,7 +24,6 @@ body {
     font-family: var(--font-secundary);
     background-image: url(./assets/hanna.jpg);
     background-size:cover;
-
 }
 
 main {
@@ -168,22 +167,29 @@ label{
 
     #pet-form {
         width: 400px;
-    
     }
     #lista-pets{
-        width: 400px;
-        justify-content: center;
+        width: auto;
     }
 
     .container-lista{
         display: flex;
-        align-items: center;
         justify-content: center;
+        margin: 0;
+        width: 100%;
+        flex-wrap:wrap;
+    }
+
+    main {
+        margin: 5% 10%;
+    }
+    body {
+        background-position:45%;
     }
 
 }
 
-@media (max-width: 670px){
+@media (max-width: 680px){
     h1{
         text-align: center;
     }
@@ -201,15 +207,19 @@ label{
     }
 
     #lista-pets{
-        width: 150px;
+        width: auto;
         justify-content: center;
     }
 
     .container-principal {
         width: 100%;
     }
+
+    main {
+        margin: 5% 5%;
+    }
 }
-@media (max-width: 400px){
+@media (max-width: 450px){
     #botao-salvar, #botao-cancelar {
         padding: 0.8em 0.5em;
     }
@@ -221,5 +231,8 @@ label{
 
     h2{
         text-align: center;
+    }
+    body {
+        background-position:48%;
     }
 }
