@@ -33,40 +33,57 @@ class PetController {
 
     static async cadastrarPet(req, res) {
         try {
-          const { nome, especie, raca, sexo, porte, idade, vacinado, castrado, vermifugado, comentarios } = req.body;
-          const imagem = req.file ? req.file.filename : null;  // A imagem deve ser acessada com req.file.filename
-      
-          const novoPet = await pet.create({
-            nome,
-            especie,
-            raca,
-            sexo,
-            porte,
-            idade,
-            vacinado,
-            castrado,
-            vermifugado,
-            comentarios,
-            imagem,  // Salva o nome do arquivo da imagem
-          });
-      
-          res.status(201).json(novoPet);  // Retorna o novo pet como resposta
+            // Desestrutura os campos da requisição
+            const { nome, especie, raca, sexo, porte, idade, vacinado, castrado, vermifugado, comentarios } = req.body;
+            const imagem = req.file ? req.file.filename : null;  // A imagem deve ser acessada com req.file.filename
+    
+            // Converte os campos "Sim"/"Não" para booleanos (true/false)
+            const vacinadoBoolean = vacinado === 'Sim';
+            const castradoBoolean = castrado === 'Sim';
+            const vermifugadoBoolean = vermifugado === 'Sim';
+    
+            // Cria um novo pet no banco de dados
+            const novoPet = await pet.create({
+                nome,
+                especie,
+                raca,
+                sexo,
+                porte,
+                idade,
+                vacinado: vacinadoBoolean,   // Agora será um booleano
+                castrado: castradoBoolean,   // Agora será um booleano
+                vermifugado: vermifugadoBoolean, // Agora será um booleano
+                comentarios,
+                imagem,  // Salva o nome do arquivo da imagem
+            });
+    
+            // Retorna o novo pet como resposta
+            res.status(201).json(novoPet);
         } catch (error) {
-          console.error(error);
-          res.status(500).json({ message: 'Erro ao cadastrar pet' });
+            console.error(error);
+            res.status(500).json({ message: 'Erro ao cadastrar pet' });
         }
-      }
+    }
+    
       
-
-    static async atualizarPet (req, res) {          
+    static async atualizarPet(req, res) {
         try {
-            const id=req.params.id;
-            await pet.findByIdAndUpdate(id, req.body)      //.findByIdAndUpdate é método do mongoose, vai buscar os dados por ID e atualizar
-            res.status(200).json({message: "pet atualizado"});          
+            const id = req.params.id;
+            const { vacinado, castrado, vermifugado } = req.body;
+    
+            // Converte os valores "Sim"/"Não" para booleanos
+            req.body.vacinado = vacinado === 'Sim';
+            req.body.castrado = castrado === 'Sim';
+            req.body.vermifugado = vermifugado === 'Sim';
+    
+            // Atualiza o pet no banco de dados
+            await pet.findByIdAndUpdate(id, req.body);
+    
+            res.status(200).json({ message: "Pet atualizado" });
         } catch (erro) {
-            res.status(500).json({message: `${erro.message} - falha na atualização do pet`})
+            res.status(500).json({ message: `${erro.message} - falha na atualização do pet` });
         }
-    };
+    }
 
     static async excluirPet (req, res) {
         try {

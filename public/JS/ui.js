@@ -15,8 +15,8 @@ export const renderPetsList = (pets) => {
   
   pets.forEach(pet => {
     const petElement = document.createElement('li');
-    const petId = pet.id ? pet.id.toString() : '';  // Garantir que id esteja disponível e seja string
-    petElement.setAttribute("data-id", petId);
+    const petId = pet._id ? pet._id.toString() : '';  // Garantir que id esteja disponível e seja string
+    petElement.setAttribute("id", petId);
     petElement.classList.add('lista-item-pet');
     console.log(pet);
     console.log(petId)
@@ -124,12 +124,17 @@ export function editarPets(pet){
   document.getElementById('pet-sexo').value = pet.sexo;
   document.getElementById('pet-porte').value = pet.porte;
   document.getElementById('pet-idade').value = pet.idade;
-  document.getElementById('pet-vacina').value = booleanToSimNao(pet.vacina);
-  document.getElementById('pet-castracao').value = booleanToSimNao(pet.castracao);
-  document.getElementById('pet-vermifugo').value = booleanToSimNao(pet.vermifugo);
+  document.getElementById('pet-vacina').value = pet.vacina  ? 'Sim' : 'Não';
+  document.getElementById('pet-castracao').value = pet.castracao ? 'Sim' : 'Não';;
+  document.getElementById('pet-vermifugo').value = pet.vermifugo ? 'Sim' : 'Não';;
   document.getElementById('pet-comentarios').value = pet.comentarios;
   document.getElementById("pet-form").scrollIntoView()
-  atualizaPet(pet)
+
+  const botaoAtualizar=document.getElementById("botao-salvar");
+  botaoAtualizar.innerText='Atualizar';
+  botaoAtualizar.onclick = () => atualizaPet(pet);
+ 
+  
 
 }
 

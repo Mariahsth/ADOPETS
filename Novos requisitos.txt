@@ -1,10 +1,10 @@
 Novos requisitos:
 
-Colocar imagem dos pets
+Colocar imagem dos pets OK
 Limitar quantidade de pets por página
-inserir funcionalidade de filtros
-Inserir funcionalidade de editar e apagar
-Inserir funcionalidade de favoritos (incluir nos filtros)
+inserir funcionalidade dos filtros
+Inserir funcionalidade de editar (iniciou) e apagar
+Ao apagar, também apagar a imagem salva em upload
 
 Inserir cadastro administrador e cliente:
 -->Sala de clientes:
@@ -12,3 +12,5 @@ O cliente apenas pode ver os pets disponíveis para adoção
 Colocar espaço para contato "Se interessou por algum pet ou conhece algum animal disponível para adoção? Entre em contato conosco"
 -->Sala de administrador:
 Possui o cadastro e visualização de pets. Pode excluir e editar os cards
+
+

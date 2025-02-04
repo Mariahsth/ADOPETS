@@ -2,6 +2,10 @@
 
 const API_URL = "http://localhost:3000/pets"; // URL da API no servidor local
 
+function simNaoToBoolean(valor) {
+  return valor == 'Sim'; // Se for 'Sim', retorna true, senão false
+}
+
 // Função para listar todos os pets
 export async function listarPets() {
   const response = await fetch(API_URL);  // Faz a requisição GET para listar os pets
@@ -12,6 +16,8 @@ export async function listarPets() {
     return pet;
   });
 }
+
+
 
 export async function cadastrarPet(pet, imagemFile) {
   const formData = new FormData();  // Cria um novo FormData para enviar dados de texto e arquivos
@@ -45,30 +51,45 @@ export async function listarPetPorId(id) {
   return await response.json();
 }
 
-export async function atualizaPet(pet){
-  
+
+export async function atualizaPet(pet) {
   try {
-      const response = await fetch(`${API_URL}/${pet.id}`, {
-          ...pet,
-          nome:document.getElementById('pet-nome').value,
-          especie:document.getElementById('pet-especie').value,
-          raca:document.getElementById('pet-raca').value,
-          sexo:document.getElementById('pet-sexo').value,
-          porte:document.getElementById('pet-porte').value,
-          idade:document.getElementById('pet-idade').value,
-          vacina:document.getElementById('pet-vacina').value,
-          castracao:document.getElementById('pet-castracao').value,
-          vermifugo:document.getElementById('pet-vermifugo').value,
-          comentarios:document.getElementById('pet-comentarios').value,
-        });
-        console.log(response);
-        console.log(pet)
-      return await response;
-  }
-  catch {
-      alert('Erro ao salvar pensamentos')
-      throw error
-  }
+      const response = await fetch(`${API_URL}/${pet._id}`, {
+          method: 'PUT', // Método PUT para edição
+          headers: {
+              'Content-Type': 'application/json' // Tipo de conteúdo
+          },
+          body: JSON.stringify({
+              nome: document.getElementById('pet-nome').value,
+              especie: document.getElementById('pet-especie').value,
+              raca: document.getElementById('pet-raca').value,
+              sexo: document.getElementById('pet-sexo').value,
+              porte: document.getElementById('pet-porte').value,
+              idade: document.getElementById('pet-idade').value,
+              vacina: simNaoToBoolean(document.getElementById('pet-vacina').value),  // Caso seja 'Sim' ou 'Não', converte para booleano
+              castracao: simNaoToBoolean(document.getElementById('pet-castracao').value) ,  // Mesma coisa para castração
+              vermifugo: simNaoToBoolean(document.getElementById('pet-vermifugo').value) ,  // Mesma coisa para vermífugo
+              comentarios: document.getElementById('pet-comentarios').value
+          })
+      });
+      // Verifica se a resposta foi bem-sucedida
+      
+      if (!response.ok) {
+          throw new Error('Erro ao salvar o pet');
+      }
 
+      // Resposta bem-sucedida
+      const updatedPet = await response.json();
+      console.log(updatedPet); // Pode imprimir para verificar os dados retornados
+      alert('Pet atualizado com sucesso!');
+      const botaoAdicionar=document.getElementById("botao-salvar");
+      botaoAdicionar.innerText='Adicionar';
+      location.reload();
+      return updatedPet; // Retorna o pet atualizado
 
+  } catch (error) {
+      alert('Erro ao editar pet');
+      console.error(error); // Adiciona o log de erro para debug
+      throw error; // Relança o erro para que ele seja tratado posteriormente
+  }
 }

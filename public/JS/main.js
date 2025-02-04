@@ -1,6 +1,6 @@
 // main.js
 
-import { listarPetPorId, listarPets } from './api.js';
+import { atualizaPet, listarPetPorId, listarPets } from './api.js';
 import { editarPets, limparFormulario, renderPetsList, submeterFormulario } from './ui.js';
 
 
@@ -18,8 +18,13 @@ async function renderizarPets() {
 function init() {
   renderizarPets();
   
-  const form = document.getElementById("pet-form");
-  form.addEventListener("submit", submeterFormulario);  // Adiciona o ouvinte de evento para o formulário
+  // const form = document.getElementById("pet-form");
+  // form.addEventListener("submit", manipulaSubmissaoFormulario);  
+
+  const botaoAtualizarOuSalvar=document.getElementById("botao-salvar");
+  if (botaoAtualizarOuSalvar.textContent==='Adicionar'){
+    botaoAtualizarOuSalvar.onclick = () => submeterFormulario
+  }
 
   const botaoCancelar=document.getElementById("botao-cancelar");
   botaoCancelar.addEventListener("click", limparFormulario);
@@ -37,5 +42,18 @@ function init() {
   
 
 }
+
+
+// export async function manipulaSubmissaoFormulario(evento) {
+//   evento.preventDefault();
+//   const botaoAtualizarOuSalvar=document.getElementById("botao-salvar");
+//   if (botaoAtualizarOuSalvar.textContent==='Adicionar'){
+//     botaoAtualizarOuSalvar.onclick = () => submeterFormulario
+
+//   }
+
+
+// }
+
 
 init();

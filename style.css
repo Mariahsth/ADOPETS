@@ -1,0 +1,238 @@
+:root{
+    --background-color-body: #FAF0E6;
+    --background-color-main: #577b8d;
+    --primary-color: #F6F6F6;
+    --secundary-color: #F6B17A;
+    --terciary-color: rgba(165, 132, 94, 0.486);;
+    --font-primary: 'Delius Swash Caps', serif;
+    --font-secundary:'Delius', serif;
+    --font-terciary: 'Quicksand', serif;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    box-sizing: border-box;
+    background-color : var(--background-color-body);
+    color:var(--primary-color);
+    font-family: var(--font-secundary);
+    background-image: url(./assets/hanna.jpg);
+    background-size:cover;
+}
+
+main {
+    background-color: rgba(90, 90, 90, 0.705);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 20%;
+    border-radius: 30px;
+    
+}
+
+h1, h2{
+    font-family: var(--font-primary);
+    padding: 1em;
+    
+}
+
+h1{
+    font-size: 45px;
+    color: var(--secundary-color);
+    
+}
+
+.icone-patas{
+    width: auto;
+    height: 1em;
+}
+
+.container-principal {
+    width: 550px;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-container{
+    padding: 10% 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#pet-especie, #pet-nome, #pet-raca {
+    border-radius: 8px;
+    padding: 0.5em;
+    border: transparent;
+}
+
+label{
+    color: var(--secundary-color);
+    font-weight: 600;
+}
+
+#pet-especie, #pet-nome, #pet-raca::placeholder{
+    font-family: var(--font-secundary);
+}
+
+
+.form-botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5%;
+    padding-top: 5%;
+    margin-bottom: 2em;
+
+}
+
+#pet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    width: 550px;
+
+}
+
+#botao-salvar, #botao-cancelar {
+    padding: 0.8em 3em;
+    border-radius: 8px;
+    font-family: var(--font-terciary);
+    background-color: var(--primary-color);
+    color: var(--background-color-main);
+    font-weight: 700;
+    border: 1px solid ;
+
+}
+
+.div-botoes{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap:0.1em;
+    margin-top: 0.3em;
+}
+
+#lista-pets{
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    gap: 2em;
+    justify-content: space-between;
+    padding-bottom: 4em;
+}
+
+.lista-item-pet{
+    background-color: var(--terciary-color);
+    border-radius: 8px;
+    list-style: none;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    padding: 1em;
+    padding-bottom: 0;
+}
+
+.botao-editar-excluir{
+    padding: 0.1em 0.2em;
+    border: transparent;
+    background-color: transparent;
+}
+
+.icone-editar-excluir{
+    width: 15px;
+}
+
+#botao-salvar:hover{
+    background-color: var(--terciary-color);
+    color: var(--background-color-body);
+}
+
+#botao-cancelar:hover{
+    background-color: var(--terciary-color);
+    color: var(--background-color-body);
+}
+
+@media (max-width: 950px){
+
+    #pet-form {
+        width: 400px;
+    }
+    #lista-pets{
+        width: auto;
+    }
+
+    .container-lista{
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        flex-wrap:wrap;
+    }
+
+    main {
+        margin: 5% 10%;
+    }
+    body {
+        background-position:45%;
+    }
+
+}
+
+@media (max-width: 680px){
+    h1{
+        text-align: center;
+    }
+
+    #pet-form {
+        width: 95%;
+    }
+
+    .form-botoes{
+        gap:1%;
+    }
+
+    #botao-salvar, #botao-cancelar {
+        padding: 0.8em 1.5em;
+    }
+
+    #lista-pets{
+        width: auto;
+        justify-content: center;
+    }
+
+    .container-principal {
+        width: 100%;
+    }
+
+    main {
+        margin: 5% 5%;
+    }
+}
+@media (max-width: 450px){
+    #botao-salvar, #botao-cancelar {
+        padding: 0.8em 0.5em;
+    }
+
+    h1{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    h2{
+        text-align: center;
+    }
+    body {
+        background-position:48%;
+    }
+}
