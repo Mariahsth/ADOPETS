@@ -1,3 +1,5 @@
+//index.js
+
 import express from "express";
 import pets from "./petsRoutes.js"
 

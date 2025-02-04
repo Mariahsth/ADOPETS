@@ -1,3 +1,5 @@
+//app.js
+
 import express from "express";
 import conectaNaDatabase from "./config/dbConnect.js";		//importa a função
 import routes from "./routes/index.js";

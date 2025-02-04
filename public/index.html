@@ -17,7 +17,7 @@
             <section id="form-container">
               <h2>Cadastro de PETs</h2>
 
-                <form id="pet-form">
+                <form id="pet-form" action="/pets" method="POST" enctype="multipart/form-data">
                   <input type="hidden" id="pet-id" />
                   <label 
                     for="pet-nome">
@@ -25,6 +25,7 @@
                     </label>
                   <input 
                     type="text" 
+                    name="nome"
                     id="pet-nome" 
                     class="form_placeholder"
                     placeholder="Insira o nome do pet" 
@@ -35,8 +36,9 @@
                     Espécie do pet:
                   </label>
                   <select 
+                    name="especie"
                     id="pet-especie" 
-                    class="form_placeholder" 
+                    class="form_placeholder campo_select" 
                     required>
                     <option  value="" disabled selected>Escolha a espécie do pet</option>
                     <option  value="Cachorro">Cachorro</option>
@@ -49,6 +51,7 @@
                       Raça do pet:
                     </label>
                   <input 
+                    name="raca"
                     type="text" 
                     id="pet-raca" 
                     class="form_placeholder"
@@ -61,7 +64,8 @@
                     </label>
                     <select 
                       id="pet-sexo" 
-                      class="form_placeholder" 
+                      class="form_placeholder campo_select" 
+                      name="sexo"
                       required>
                       <option value="" disabled selected>Escolha o sexo do pet</option>
                       <option value="Macho">Macho</option>
@@ -74,7 +78,8 @@
                     </label>
                     <select 
                       id="pet-porte" 
-                      class="form_placeholder" 
+                      name="porte"
+                      class="form_placeholder campo_select" 
                       required>
                       <option value="" disabled selected>Escolha o porte do pet</option>
                       <option value="Pequeno">Pequeno</option>
@@ -89,7 +94,8 @@
                     </label>
                     <select 
                       id="pet-idade" 
-                      class="form_placeholder" 
+                      name="idade"
+                      class="form_placeholder campo_select" 
                       required>
                       <option value="" disabled selected>Escolha a idade aproximada do pet em anos</option>
                       <option value=0><0</option>
@@ -121,7 +127,8 @@
                     </label>
                     <select 
                       id="pet-vacina" 
-                      class="form_placeholder" 
+                      name="vacinado"
+                      class="form_placeholder campo_select" 
                       required>
                       <option value="" disabled selected>O pet é vacinado?</option>
                       <option value="Sim">Sim</option>
@@ -134,7 +141,8 @@
                     </label>
                     <select 
                       id="pet-castracao" 
-                      class="form_placeholder" 
+                      name="castrado"
+                      class="form_placeholder campo_select" 
                       required>
                       <option value="" disabled selected>O pet é castrado(a)?</option>
                       <option value="Sim">Sim</option>
@@ -147,7 +155,8 @@
                     </label>
                     <select 
                       id="pet-vermifugo" 
-                      class="form_placeholder" 
+                      name="vermifugado"
+                      class="form_placeholder campo_select" 
                       required>
                       <option value="" disabled selected>O pet é vermifugado(a)?</option>
                       <option value="Sim">Sim</option>
@@ -161,9 +170,21 @@
                   <input 
                     type="text" 
                     id="pet-comentarios" 
+                    name="comentarios"
                     class="form_placeholder"
                     placeholder="Comentários sobre o pet" 
                     required />
+
+                  <label for="imagem">Imagem:</label>
+                  <input 
+                    type="file" 
+                    id="imagem" 
+                    class="form_placeholder campo_carregar_imagem"
+                    name="imagem" 
+                    placeholder="Imagem do pet"
+                    accept="image/*" 
+                    required><br>
+
                   <div class="form-botoes">
                     <button 
                       type="submit" 

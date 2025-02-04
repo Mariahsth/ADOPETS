@@ -1,3 +1,5 @@
+//server.js
+
 import express from 'express';
 import "dotenv/config";         //variavel de ambiente
 import app from "./src/app.js"; 	//app é onde está salvoo express()
@@ -9,6 +11,7 @@ const __dirname = path.dirname(__filename);
 
 // Configuração do servidor Express para servir arquivos estáticos (CSS, JS, imagens)
 app.use(express.static(path.join(__dirname, 'public'))); // Configura o Express para servir arquivos estáticos a partir da pasta public.
+app.use('/uploads', express.static(path.join(__dirname, 'src','uploads')));  // Serve imagens de uploads
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Configura o Express para interpretar requisições com dados de formulários HTML, com suporte a objetos e arrays aninhados. Para lidar com dados de formulários (POST). 
 

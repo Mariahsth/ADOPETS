@@ -1,7 +1,9 @@
-import { cadastrarPet } from "./api.js";
-
 
 // ui.js
+
+import { atualizaPet, cadastrarPet } from "./api.js";
+
+
 const booleanToSimNao = (value) => value ? "Sim" : "Não";
 const simNaoToBoolean = (value) => value.toLowerCase() == "sim" ? true : false;
 
@@ -13,8 +15,11 @@ export const renderPetsList = (pets) => {
   
   pets.forEach(pet => {
     const petElement = document.createElement('li');
-    petElement.setAttribute("data-id", pet.id);
+    const petId = pet.id ? pet.id.toString() : '';  // Garantir que id esteja disponível e seja string
+    petElement.setAttribute("data-id", petId);
     petElement.classList.add('lista-item-pet');
+    console.log(pet);
+    console.log(petId)
 
     petElement.innerHTML = `
       <h3>${pet.nome}</h3>
@@ -31,7 +36,7 @@ export const renderPetsList = (pets) => {
       <p class="parametro-item-lista">Porte:</p><p> ${pet.porte}</p>
       </div>
       <div class="linha">
-      <p class="parametro-item-lista">Idade: </p><p>${pet.idade}</p>
+      <p class="parametro-item-lista">Idade: </p><p>${pet.idade} anos</p>
       </div>
       <div class="linha">
       <p class="parametro-item-lista">Vacinado(a):</p><p> ${booleanToSimNao(pet.vacinado)}</p>
@@ -42,50 +47,90 @@ export const renderPetsList = (pets) => {
       <div class="linha">
       <p class="parametro-item-lista">Vermifugado(a): </p><p>${booleanToSimNao(pet.vermifugado)}</p>
       </div>
+      <div >
+        <img class="imagem_pet" src="${pet.imagem}" alt="imagem do pet">
+      </div>
       <div class="comentarios-container">
         <p class="parametro-item-lista">Comentários:</p><p> ${pet.comentarios}</p>
       </div>
       <div class="div-botoes">
-        <button class="botao-editar-excluir"><img src="./assets/icone-excluir.png" class="botao-editar-excluir"></button>Excluir</button>
-        <button class="botao-editar-excluir"><img src="./assets/icone-editar.png" class="botao-editar-excluir"></button>Editar</button>
-        <button class="botao-favoritar"><img src="./assets/favorite_outline.png" class="botao-favoritar"></button>Favoritar</button>
+        <button class="botao_excluir">
+          <img src="./assets/icone-excluir.png" class="botao-editar-excluir">
+        </button>
+          Excluir
+        </button>
+        <button class="botao_editar" data-id="${petId}">
+          <img src="./assets/icone-editar.png">
+        </button>
+          Editar
+        </button>
+        <button class="botao-favoritar" id="botao_favoritar">
+          <img src="./assets/favorite_outline.png" class="botao-favoritar">
+        </button>
+          Favoritar
+        </button>
       </div>
     `;
     petsListElement.appendChild(petElement);
   });
 };
 
-// Função para lidar com o envio do formulário
 export const submeterFormulario = async (event) => {
   event.preventDefault();
-  const nome = document.getElementById('pet-nome').value;
-  const especie = document.getElementById('pet-especie').value;
-  const raca = document.getElementById('pet-raca').value;
-  const sexo = document.getElementById('pet-sexo').value;
-  const porte = document.getElementById('pet-porte').value;
-  const idade = document.getElementById('pet-idade').value;
-  const vacinado = simNaoToBoolean(document.getElementById('pet-vacina').value);
-  const castrado = simNaoToBoolean(document.getElementById('pet-castracao').value);
-  const vermifugado = simNaoToBoolean(document.getElementById('pet-vermifugo').value);
-  const comentarios = document.getElementById('pet-comentarios').value;
+  
+  const form = document.getElementById('pet-form');
+  const formData = new FormData(form);  // Usando FormData diretamente do formulário
 
-  const petData = { nome, especie, raca, sexo, porte, idade, vacinado, castrado, vermifugado, comentarios };
-  console.log(petData);
-  // Adicionar o pet à lista
-  await cadastrarPet(petData)
-  .then(newPet => {
+  // Captura a imagem do formulário
+  const imagemFile = document.getElementById('imagem').files[0];
+
+  // Crie um objeto pet com os outros dados do formulário
+  const pet = {
+    nome: formData.get('nome'),
+    especie: formData.get('especie'),
+    raca: formData.get('raca'),
+    sexo: formData.get('sexo'),
+    porte: formData.get('porte'),
+    idade: formData.get('idade'),
+    vacinado: simNaoToBoolean(formData.get('vacinado')),
+    castrado: simNaoToBoolean(formData.get('castrado')),
+    vermifugado: simNaoToBoolean(formData.get('vermifugado')),
+    comentarios: formData.get('comentarios')
+  };
+
+  // Envia os dados para o back-end
+  try {
+    await cadastrarPet(pet, imagemFile);  // Passa tanto o objeto pet quanto a imagem
     alert('Pet adicionado com sucesso!');
     limparFormulario();
-    // Recarregar a página
     location.reload();
-  })
-  .catch(error => {
+  } catch (error) {
     alert(error.message);
-  });
-  
+  }
 };
+
+
+
+
 
 export function limparFormulario() {
   document.getElementById('pet-form').reset();
 }
+
+export function editarPets(pet){
+  document.getElementById('pet-nome').value = pet.nome;
+  document.getElementById('pet-especie').value = pet.especie;
+  document.getElementById('pet-raca').value = pet.raca;
+  document.getElementById('pet-sexo').value = pet.sexo;
+  document.getElementById('pet-porte').value = pet.porte;
+  document.getElementById('pet-idade').value = pet.idade;
+  document.getElementById('pet-vacina').value = booleanToSimNao(pet.vacina);
+  document.getElementById('pet-castracao').value = booleanToSimNao(pet.castracao);
+  document.getElementById('pet-vermifugo').value = booleanToSimNao(pet.vermifugo);
+  document.getElementById('pet-comentarios').value = pet.comentarios;
+  document.getElementById("pet-form").scrollIntoView()
+  atualizaPet(pet)
+
+}
+
 

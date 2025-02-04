@@ -1,3 +1,5 @@
+//Pets.js
+
 import mongoose from "mongoose";
 
 const petsSchema=new mongoose.Schema({			//Criar Schema (objeto de configuração que define a estrutura e as propriedades de um documento)
@@ -11,6 +13,7 @@ const petsSchema=new mongoose.Schema({			//Criar Schema (objeto de configuraçã
     vacinado:{type:Boolean},
     castrado:{type:Boolean},
     vermifugado:{type:Boolean},
+    imagem: { type: String, required: false },
     comentarios:{type:String},
 }, {versionKey: false} )           		 //se refere ao versionamento do mongodb
 

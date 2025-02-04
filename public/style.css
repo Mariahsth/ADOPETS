@@ -83,11 +83,14 @@ h1{
     border-radius: 8px;
     padding: 0.5em;
     border: transparent;
-    width: 100%;
     font-family: var(--font-secundary);
     color: #333;
 }
 
+
+.campo_carregar_imagem {
+    background-color: var(--primary-color);
+}
 
 
 label{
@@ -99,6 +102,7 @@ label{
 .form_placeholder::placeholder{
     font-family: var(--font-secundary);
     color: #333;
+    width: 100%;
 }
 
 
@@ -197,15 +201,21 @@ label{
     gap: 0.5em;
 }
 
+.imagem_pet{
+    width: 70%;
+    height: auto;
+    margin-top: 1em;
+}
+
 
 .comentarios-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2em;
+    padding-top: 1em;
 }
 
-.botao-editar-excluir, .botao-favoritar{
+.botao_editar, .botao_excluir, .botao-favoritar{
     padding: 0.1em 0.2em;
     border: transparent;
     background-color: transparent;

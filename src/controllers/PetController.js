@@ -1,3 +1,5 @@
+//PetController.js
+import path from 'path';
 import pet from "../models/Pets.js";
 
 //controller vai ser uma classe e dentro terão vários métodos
@@ -5,7 +7,13 @@ class PetController {
     static async listarPets (req, res) {          //static pra não precisar instanciar a classe
         try {
             const listaPets=await pet.find({})      //.find é método do mongoose, vai buscar os dados usando o modelo pet
-            res.status(200).json(listaPets);          //Manda tipo json para que o navegador consiga interpretar o objeto
+            // Para cada pet, ajusta o caminho da imagem
+            const petsWithImageUrls = listaPets.map(pet => ({
+                ...pet.toObject(),
+                imagem: `/uploads/${pet.imagem}` // Caminho da imagem no servidor
+            }));
+            res.status(200).json(petsWithImageUrls);  // Manda a lista com os links das imagens
+            // res.status(200).json(listaPets);          //Manda tipo json para que o navegador consiga interpretar o objeto
         } catch (erro) {
             res.status(500).json({message: `${erro.message} - falha na requisição`})
         }
@@ -21,14 +29,34 @@ class PetController {
         }
     };
 
-    static async cadastrarPet (req, res) {
+   
+
+    static async cadastrarPet(req, res) {
         try {
-            const novoPet=await pet.create(req.body)                    //create() é método do mongoose
-            res.status(201).json({message: "criado com sucesso", pet: novoPet})
-        } catch (erro) {
-            res.status(500).json({message: `${erro.message} - falha ao cadastrar pet`})
+          const { nome, especie, raca, sexo, porte, idade, vacinado, castrado, vermifugado, comentarios } = req.body;
+          const imagem = req.file ? req.file.filename : null;  // A imagem deve ser acessada com req.file.filename
+      
+          const novoPet = await pet.create({
+            nome,
+            especie,
+            raca,
+            sexo,
+            porte,
+            idade,
+            vacinado,
+            castrado,
+            vermifugado,
+            comentarios,
+            imagem,  // Salva o nome do arquivo da imagem
+          });
+      
+          res.status(201).json(novoPet);  // Retorna o novo pet como resposta
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ message: 'Erro ao cadastrar pet' });
         }
-    };
+      }
+      
 
     static async atualizarPet (req, res) {          
         try {
@@ -50,6 +78,23 @@ class PetController {
             res.status(500).json({message: `${erro.message} - falha ao deletar pet`})
         }
     };
+
+    static async exibirImagemPet(req, res) {
+        console.log("Função exibirImagemPet chamada");
+        try {
+            const pet = await pet.findById(req.params.id);  // Busca o pet pelo ID
+            if (!pet || !pet.imagem) {
+                return res.status(404).json({ message: 'Imagem não encontrada para este pet' });
+            }
+    
+            // Caminho da imagem no servidor
+            const imagemPath = path.join(__dirname, '..', 'uploads', pet.imagem);
+            console.log("Caminho da imagem:", imagemPath);
+            res.sendFile(imagemPath);  // Envia a imagem diretamente
+        } catch (erro) {
+            res.status(500).json({ message: `${erro.message} - falha ao exibir imagem` });
+        }
+    }
 };
 
 export default PetController;
