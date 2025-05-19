@@ -1,6 +1,10 @@
 //PetController.js
 import path from 'path';
 import pet from "../models/Pets.js";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //controller vai ser uma classe e dentro terão vários métodos
 class PetController {
@@ -33,9 +37,10 @@ class PetController {
 
     static async cadastrarPet(req, res) {
         try {
+            console.log("req.body:", req.body);
+            console.log("req.file:", req.file);
             // Desestrutura os campos da requisição
             const { nome, especie, raca, sexo, porte, idade, vacinado, castrado, vermifugado, comentarios } = req.body;
-            const imagem = req.file ? req.file.filename : null;  // A imagem deve ser acessada com req.file.filename
     
             // Converte os campos "Sim"/"Não" para booleanos (true/false)
             const vacinadoBoolean = vacinado === 'Sim';
@@ -54,14 +59,14 @@ class PetController {
                 castrado: castradoBoolean,   // Agora será um booleano
                 vermifugado: vermifugadoBoolean, // Agora será um booleano
                 comentarios,
-                imagem,  // Salva o nome do arquivo da imagem
+                imagem:req.file?.filename,  // Salva o nome do arquivo da imagem
             });
-    
+            const petSalvo = await novoPet.save();
             // Retorna o novo pet como resposta
-            res.status(201).json(novoPet);
+            res.status(201).json(petSalvo);
         } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: 'Erro ao cadastrar pet' });
+            console.error("Erro interno:", error);
+            res.status(500).json({  message: "Erro ao cadastrar pet", error: error.message  });
         }
     }
     
@@ -99,8 +104,8 @@ class PetController {
     static async exibirImagemPet(req, res) {
         console.log("Função exibirImagemPet chamada");
         try {
-            const pet = await pet.findById(req.params.id);  // Busca o pet pelo ID
-            if (!pet || !pet.imagem) {
+            const petEncontrado  = await pet.findById(req.params.id);  // Busca o pet pelo ID
+            if (!petEncontrado  || !petEncontrado .imagem) {
                 return res.status(404).json({ message: 'Imagem não encontrada para este pet' });
             }
     

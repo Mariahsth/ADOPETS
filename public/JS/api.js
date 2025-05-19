@@ -20,6 +20,8 @@ export async function listarPets() {
 
 
 export async function cadastrarPet(pet, imagemFile) {
+  console.log("req.body:", req.body);
+  console.log("req.file:", req.file);
   const formData = new FormData();  // Cria um novo FormData para enviar dados de texto e arquivos
   // Adiciona os dados do pet (nome, etc.)
   formData.append("nome", pet.nome);
@@ -36,14 +38,23 @@ export async function cadastrarPet(pet, imagemFile) {
   if (imagemFile) {
     formData.append("imagem", imagemFile);  // 'imagem' é o nome do campo que você espera no back-end
   }
-  const response = await fetch(API_URL, {
-    method: "POST",
-    body: formData,  // Envia o FormData no corpo da requisição
-  });
 
-  if (!response.ok) throw new Error("Erro ao cadastrar pet");
-  return await response.json();  // Retorna a resposta do servidor
-}
+  try {
+    await fetch('http://localhost:3000/pets', {
+      method: 'POST',
+      body: formData
+    });
+
+    alert('Pet adicionado com sucesso!');
+    form.reset();
+    location.reload();
+
+  } catch (error) {
+    console.error('Erro ao cadastrar pet:', error);
+    alert(error.message);
+  }
+};
+
 
 export async function listarPetPorId(id) {
   const response = await fetch(`${API_URL}/${id}`);  // Faz a requisição GET para listar o pet pelo ID
@@ -66,9 +77,9 @@ export async function atualizaPet(pet) {
               sexo: document.getElementById('pet-sexo').value,
               porte: document.getElementById('pet-porte').value,
               idade: document.getElementById('pet-idade').value,
-              vacina: simNaoToBoolean(document.getElementById('pet-vacina').value),  // Caso seja 'Sim' ou 'Não', converte para booleano
-              castracao: simNaoToBoolean(document.getElementById('pet-castracao').value) ,  // Mesma coisa para castração
-              vermifugo: simNaoToBoolean(document.getElementById('pet-vermifugo').value) ,  // Mesma coisa para vermífugo
+              vacinado: simNaoToBoolean(document.getElementById('pet-vacina').value),  // Caso seja 'Sim' ou 'Não', converte para booleano
+              castrado: simNaoToBoolean(document.getElementById('pet-castracao').value) ,  // Mesma coisa para castração
+              vermifugado: simNaoToBoolean(document.getElementById('pet-vermifugo').value) ,  // Mesma coisa para vermífugo
               comentarios: document.getElementById('pet-comentarios').value
           })
       });

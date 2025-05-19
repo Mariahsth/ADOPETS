@@ -4,10 +4,10 @@ import mongoose from "mongoose";
 
 const petsSchema=new mongoose.Schema({			//Criar Schema (objeto de configuração que define a estrutura e as propriedades de um documento)
     id: {type: mongoose.Schema.Types.ObjectId},     //Definindo o tipo de dado de cada parametro
-    nome:{type:String, require:true},             //required=obrigatório
-    especie:{type:String, require:true},
+    nome:{type:String, required:true},             //required=obrigatório
+    especie:{type:String, required:true},
     raca:{type: String},
-    sexo:{type: String, require:true},
+    sexo:{type: String, required:true},
     porte:{type:String},
     idade:{type:Number},
     vacinado:{type:Boolean},

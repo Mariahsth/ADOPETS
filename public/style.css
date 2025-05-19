@@ -1,12 +1,12 @@
 :root{
-    --background-color-body: #FAF0E6;
-    --background-color-main: #577b8d;
-    --primary-color: #F6F6F6;
-    --secundary-color: #F6B17A;
+    --background-color-body: rgba(207, 207, 205, 0.589);
+    --primary-color: #f7f5f09a;
+    --secundary-color: #b87d4d;
     --terciary-color: rgba(165, 132, 94, 0.486);;
-    --font-primary: 'Delius Swash Caps', serif;
-    --font-secundary:'Delius', serif;
-    --font-terciary: 'Quicksand', serif;
+    --quaternary-color: #577b8d;
+    --font-primary: "Raleway", sans-serif;
+    --font-secundary:"Inconsolata", monospace;;
+    --font-terciary: "Roboto Mono", monospace;
 
 }
 
@@ -22,14 +22,10 @@ body {
     background-color : var(--background-color-body);
     color:var(--primary-color);
     font-family: var(--font-secundary);
-    background-image: url('./assets/hanna.jpg');
-    background-size:cover;
-    background-position: 50% center
+    font-weight: 300;
 }
 
 main {
-    background-color: rgba(90, 90, 90, 0.705);
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,16 +34,39 @@ main {
     
 }
 
+.banner {
+    min-width: 100%;
+    height: 400px;
+    background-image: url('./assets/hanna2.jpg');
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--terciary-color);
+
+}
+
 h1, h2{
     font-family: var(--font-primary);
     padding: 1em;
-    
+    font-weight: 300;
 }
 
 h1{
-    font-size: 45px;
+    font-size: 64px;
     color: var(--secundary-color);
     
+}
+h2{
+    font-size: 47px;
+    color: var(--secundary-color);
+
+}
+h3{
+    font-size: 24px;
+    color: var(--quaternary-color);
+    font-weight: 300;
+
 }
 
 .icone-patas{
@@ -57,17 +76,22 @@ h1{
 
 .container-principal {
     width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 #form-container{
     padding: 1% 0;
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .container-lista{
@@ -84,7 +108,7 @@ h1{
     padding: 0.5em;
     border: transparent;
     font-family: var(--font-secundary);
-    color: #333;
+    color: var(--quaternary-color)
 }
 
 
@@ -95,13 +119,12 @@ h1{
 
 label{
     color: var(--secundary-color);
-    font-weight: 600;
     
 }
 
 .form_placeholder::placeholder{
     font-family: var(--font-secundary);
-    color: #333;
+    color: var(--quaternary-color);
     width: 100%;
 }
 
@@ -130,9 +153,11 @@ label{
     border-radius: 8px;
     font-family: var(--font-terciary);
     background-color: var(--primary-color);
-    color: var(--background-color-main);
+    color: var(--quaternary-color);
     font-weight: 700;
     border: 1px solid ;
+    cursor: pointer;
+
 
 }
 
@@ -141,11 +166,16 @@ label{
     align-items: center;
     justify-content: end;
     gap:0.1em;
-    margin-top: 0.3em;
+    margin-top: 2rem;
+}
+
+.linha_divisoria{
+    width: 100%;
+    margin-top: 8rem;
 }
 
 .lista-filtros{
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     list-style-type: none;
@@ -161,22 +191,22 @@ label{
     font-family: var(--font-primary);
     color: var(--primary-color);
     font-size: 15px;
+    cursor: pointer;
+
 }
 
 .lista-filtros-item:hover{
     background-color: var(--background-color-body);
-    border: 1px solid var(--background-color-main);
-    color: var(--background-color-main);
+    border: 1px solid var(--quaternary-color);
+    color: var(--quaternary-color);
 }
 
 #lista-pets{
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap:wrap;
+   
     gap: 3em;
-    justify-content: space-between;
     padding-bottom: 4em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: 4%;
 }
 
@@ -184,11 +214,14 @@ label{
     background-color: var(--terciary-color);
     border-radius: 8px;
     list-style: none;
-    width: 100%;
+    max-width: 100%;
     height: auto;
     text-align: center;
     padding: 1em;
     padding-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .parametro-item-lista{
@@ -202,9 +235,11 @@ label{
 }
 
 .imagem_pet{
-    width: 70%;
+    width: 80%;
     height: auto;
     margin-top: 1em;
+    border: 1px solid var(--terciary-color);
+    border-radius: 8px;
 }
 
 

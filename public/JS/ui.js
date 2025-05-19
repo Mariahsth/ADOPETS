@@ -1,12 +1,10 @@
 
-// ui.js
-
 import { atualizaPet, cadastrarPet } from "./api.js";
 
 
 const booleanToSimNao = (value) => value ? "Sim" : "Não";
 const simNaoToBoolean = (value) => value.toLowerCase() == "sim" ? true : false;
-
+const backendURL = "http://localhost:3000";
 
 // Função para renderizar a lista de pets
 export const renderPetsList = (pets) => {
@@ -48,7 +46,7 @@ export const renderPetsList = (pets) => {
       <p class="parametro-item-lista">Vermifugado(a): </p><p>${booleanToSimNao(pet.vermifugado)}</p>
       </div>
       <div >
-        <img class="imagem_pet" src="${pet.imagem}" alt="imagem do pet">
+        <img class="imagem_pet" src=${backendURL}${pet.imagem} alt="imagem do pet">
       </div>
       <div class="comentarios-container">
         <p class="parametro-item-lista">Comentários:</p><p> ${pet.comentarios}</p>
@@ -75,37 +73,29 @@ export const renderPetsList = (pets) => {
   });
 };
 
-export const submeterFormulario = async (event) => {
-  event.preventDefault();
-  
-  const form = document.getElementById('pet-form');
-  const formData = new FormData(form);  // Usando FormData diretamente do formulário
-
-  // Captura a imagem do formulário
-  const imagemFile = document.getElementById('imagem').files[0];
-
-  // Crie um objeto pet com os outros dados do formulário
-  const pet = {
-    nome: formData.get('nome'),
-    especie: formData.get('especie'),
-    raca: formData.get('raca'),
-    sexo: formData.get('sexo'),
-    porte: formData.get('porte'),
-    idade: formData.get('idade'),
-    vacinado: simNaoToBoolean(formData.get('vacinado')),
-    castrado: simNaoToBoolean(formData.get('castrado')),
-    vermifugado: simNaoToBoolean(formData.get('vermifugado')),
-    comentarios: formData.get('comentarios')
+export const submeterFormulario = async () => {
+  const formData = new FormData(document.getElementById("pet-form"));
+  const novoPet = {
+    nome: formData.get("nome"),
+    especie: formData.get("especie"),
+    raca: formData.get("raca"),
+    sexo: formData.get("sexo"),
+    porte: formData.get("porte"),
+    idade: formData.get("idade"),
+    vacinado: formData.get("vacinado"),
+    castrado: formData.get("castrado"),
+    vermifugado: formData.get("vermifugado"),
+    comentarios: formData.get("comentarios"),
+    imagem: formData.get("imagem"),
   };
 
-  // Envia os dados para o back-end
   try {
-    await cadastrarPet(pet, imagemFile);  // Passa tanto o objeto pet quanto a imagem
-    alert('Pet adicionado com sucesso!');
+    await cadastrarPet(novoPet);
     limparFormulario();
-    location.reload();
+    const pets = await listarPets();
+    renderPetsList(pets);
   } catch (error) {
-    alert(error.message);
+    console.error("Erro ao cadastrar pet:", error);
   }
 };
 
@@ -124,9 +114,9 @@ export function editarPets(pet){
   document.getElementById('pet-sexo').value = pet.sexo;
   document.getElementById('pet-porte').value = pet.porte;
   document.getElementById('pet-idade').value = pet.idade;
-  document.getElementById('pet-vacina').value = pet.vacina  ? 'Sim' : 'Não';
-  document.getElementById('pet-castracao').value = pet.castracao ? 'Sim' : 'Não';;
-  document.getElementById('pet-vermifugo').value = pet.vermifugo ? 'Sim' : 'Não';;
+  document.getElementById('pet-vacina').value = pet.vacinado  ? 'Sim' : 'Não';
+  document.getElementById('pet-castracao').value = pet.castrado ? 'Sim' : 'Não';;
+  document.getElementById('pet-vermifugo').value = pet.vermifugado ? 'Sim' : 'Não';;
   document.getElementById('pet-comentarios').value = pet.comentarios;
   document.getElementById("pet-form").scrollIntoView()
 

@@ -23,7 +23,7 @@ function init() {
 
   const botaoAtualizarOuSalvar=document.getElementById("botao-salvar");
   if (botaoAtualizarOuSalvar.textContent==='Adicionar'){
-    botaoAtualizarOuSalvar.onclick = () => submeterFormulario
+    botaoAtualizarOuSalvar.onclick = (e) => submeterFormulario(e)
   }
 
   const botaoCancelar=document.getElementById("botao-cancelar");
