@@ -1,11 +1,11 @@
 
 import express from "express";
-import conectaNaDatabase from "./config/dbConnect.js";		//importa a função
+import conectaNaDatabase from "./config/dbConnect.js";		
 import routes from "./routes/index.js";
 import cors from "cors";
 import path from "path";
 
-const app=express();        //salvando o express na variável app
+const app=express();        
 
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 

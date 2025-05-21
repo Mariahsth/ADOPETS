@@ -10,9 +10,9 @@ const petsSchema=new mongoose.Schema({			//Criar Schema (objeto de configuraçã
     sexo:{type: String, required:true},
     porte:{type:String},
     idade:{type:Number},
-    vacinado:{type:Boolean},
-    castrado:{type:Boolean},
-    vermifugado:{type:Boolean},
+    vacinado:{type:String},
+    castrado:{type:String},
+    vermifugado:{type:String},
     imagem: { type: String, required: false },
     comentarios:{type:String},
 }, {versionKey: false} )           		 //se refere ao versionamento do mongodb

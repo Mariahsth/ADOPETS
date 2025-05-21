@@ -1,12 +1,7 @@
 
-import { atualizaPet, cadastrarPet } from "./api.js";
+import { atualizaPet, cadastrarPet, excluirPet, listarPets } from "./api.js";
 
 
-const booleanToSimNao = (value) => value ? "Sim" : "Não";
-const simNaoToBoolean = (value) => value.toLowerCase() == "sim" ? true : false;
-const backendURL = "http://localhost:3000";
-
-// Função para renderizar a lista de pets
 export const renderPetsList = (pets) => {
   const petsListElement = document.getElementById('lista-pets');
   petsListElement.innerHTML = ''; // Limpa a lista antes de adicionar
@@ -16,8 +11,7 @@ export const renderPetsList = (pets) => {
     const petId = pet._id ? pet._id.toString() : '';  // Garantir que id esteja disponível e seja string
     petElement.setAttribute("id", petId);
     petElement.classList.add('lista-item-pet');
-    console.log(pet);
-    console.log(petId)
+
 
     petElement.innerHTML = `
       <h3>${pet.nome}</h3>
@@ -37,16 +31,16 @@ export const renderPetsList = (pets) => {
       <p class="parametro-item-lista">Idade: </p><p>${pet.idade} anos</p>
       </div>
       <div class="linha">
-      <p class="parametro-item-lista">Vacinado(a):</p><p> ${booleanToSimNao(pet.vacinado)}</p>
+      <p class="parametro-item-lista">Vacinado(a):</p><p> ${pet.vacinado}</p>
       </div>
       <div class="linha">
-      <p class="parametro-item-lista">Castrado(a):</p><p> ${booleanToSimNao(pet.castrado)}</p>
+      <p class="parametro-item-lista">Castrado(a):</p><p> ${pet.castrado}</p>
       </div>
       <div class="linha">
-      <p class="parametro-item-lista">Vermifugado(a): </p><p>${booleanToSimNao(pet.vermifugado)}</p>
+      <p class="parametro-item-lista">Vermifugado(a): </p><p>${pet.vermifugado}</p>
       </div>
       <div >
-        <img class="imagem_pet" src=${backendURL}${pet.imagem} alt="imagem do pet">
+        <img class="imagem_pet" src=${pet.imagem} alt=${pet.nome}>
       </div>
       <div class="comentarios-container">
         <p class="parametro-item-lista">Comentários:</p><p> ${pet.comentarios}</p>
@@ -57,7 +51,7 @@ export const renderPetsList = (pets) => {
         </button>
           Excluir
         </button>
-        <button class="botao_editar" data-id="${petId}">
+        <button class="botao_editar" data-id="${petId}" >
           <img src="./assets/icone-editar.png">
         </button>
           Editar
@@ -70,27 +64,29 @@ export const renderPetsList = (pets) => {
       </div>
     `;
     petsListElement.appendChild(petElement);
+
+    const editarBtn = petElement.querySelector('.botao_editar');
+    editarBtn.addEventListener('click', () => editarPets(pet));
+
+    const excluirBtn = petElement.querySelector('.botao_excluir');
+    excluirBtn.addEventListener('click', () => excluirPet(pet));
+
   });
 };
 
-export const submeterFormulario = async () => {
-  const formData = new FormData(document.getElementById("pet-form"));
-  const novoPet = {
-    nome: formData.get("nome"),
-    especie: formData.get("especie"),
-    raca: formData.get("raca"),
-    sexo: formData.get("sexo"),
-    porte: formData.get("porte"),
-    idade: formData.get("idade"),
-    vacinado: formData.get("vacinado"),
-    castrado: formData.get("castrado"),
-    vermifugado: formData.get("vermifugado"),
-    comentarios: formData.get("comentarios"),
-    imagem: formData.get("imagem"),
-  };
+export const submeterFormulario = async (event) => {
+
+  event.preventDefault();
+  const form = document.getElementById('pet-form');
+  const formData = new FormData(form); 
+
+  for (const [key, value] of formData.entries()) {
+    console.log(key, value);
+  }
 
   try {
-    await cadastrarPet(novoPet);
+    await cadastrarPet(formData);
+    alert('Pet adicionado com sucesso!');
     limparFormulario();
     const pets = await listarPets();
     renderPetsList(pets);
@@ -104,7 +100,10 @@ export const submeterFormulario = async () => {
 
 
 export function limparFormulario() {
+  const botaoSalvar=document.getElementById("botao-salvar");
+  botaoSalvar.innerText='Adicionar';
   document.getElementById('pet-form').reset();
+  
 }
 
 export function editarPets(pet){
@@ -114,9 +113,9 @@ export function editarPets(pet){
   document.getElementById('pet-sexo').value = pet.sexo;
   document.getElementById('pet-porte').value = pet.porte;
   document.getElementById('pet-idade').value = pet.idade;
-  document.getElementById('pet-vacina').value = pet.vacinado  ? 'Sim' : 'Não';
-  document.getElementById('pet-castracao').value = pet.castrado ? 'Sim' : 'Não';;
-  document.getElementById('pet-vermifugo').value = pet.vermifugado ? 'Sim' : 'Não';;
+  document.getElementById('pet-vacina').value = pet.vacinado;
+  document.getElementById('pet-castracao').value = pet.castrado;
+  document.getElementById('pet-vermifugo').value = pet.vermifugado;
   document.getElementById('pet-comentarios').value = pet.comentarios;
   document.getElementById("pet-form").scrollIntoView()
 
