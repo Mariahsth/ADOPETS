@@ -80,10 +80,6 @@ export const submeterFormulario = async (event) => {
   const form = document.getElementById('pet-form');
   const formData = new FormData(form); 
 
-  for (const [key, value] of formData.entries()) {
-    console.log(key, value);
-  }
-
   try {
     await cadastrarPet(formData);
     alert('Pet adicionado com sucesso!');
@@ -121,10 +117,8 @@ export function editarPets(pet){
 
   const botaoAtualizar=document.getElementById("botao-salvar");
   botaoAtualizar.innerText='Atualizar';
-  botaoAtualizar.onclick = () => atualizaPet(pet);
+  botaoAtualizar.onclick = (e) => atualizaPet(pet, e);
  
-  
-
 }
 
 

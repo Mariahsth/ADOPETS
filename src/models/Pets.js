@@ -15,6 +15,7 @@ const petsSchema=new mongoose.Schema({			//Criar Schema (objeto de configuraçã
     vermifugado:{type:String},
     imagem: { type: String, required: false },
     comentarios:{type:String},
+    imagemPublicId: {type:String},
 }, {versionKey: false} )           		 //se refere ao versionamento do mongodb
 
 //definindo o modelo "pet" (modelo é um objeto que representa uma coleção na base de dados, é uma interface)

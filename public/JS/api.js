@@ -66,33 +66,38 @@ export async function excluirPet(pet){
 
 
 
-export async function atualizaPet(pet) {
+export async function atualizaPet(pet, e) {
+  e.preventDefault()
   try {
+      const formData = new FormData();
+
+      formData.append("nome", document.getElementById("pet-nome").value);
+      formData.append("especie", document.getElementById("pet-especie").value);
+      formData.append("raca", document.getElementById("pet-raca").value);
+      formData.append("sexo", document.getElementById("pet-sexo").value);
+      formData.append("porte", document.getElementById("pet-porte").value);
+      formData.append("idade", document.getElementById("pet-idade").value);
+      formData.append("vacinado", document.getElementById("pet-vacina").value);
+      formData.append("castrado", document.getElementById("pet-castracao").value);
+      formData.append("vermifugado", document.getElementById("pet-vermifugo").value);
+      formData.append("comentarios", document.getElementById("pet-comentarios").value);
+
+      const imagemInput = document.getElementById("imagem");
+      if (imagemInput.files.length > 0) {
+        formData.append("imagem", imagemInput.files[0]);
+      }
+
       const response = await fetch(`${API_URL}/${pet._id}`, {
           method: 'PUT', 
-          headers: {
-              'Content-Type': 'application/json' 
-          },
-          body: JSON.stringify({
-              nome: document.getElementById('pet-nome').value,
-              especie: document.getElementById('pet-especie').value,
-              raca: document.getElementById('pet-raca').value,
-              sexo: document.getElementById('pet-sexo').value,
-              porte: document.getElementById('pet-porte').value,
-              idade: document.getElementById('pet-idade').value,
-              vacinado: document.getElementById('pet-vacina').value,  
-              castrado: document.getElementById('pet-castracao').value ,  
-              vermifugado: document.getElementById('pet-vermifugo').value ,  
-              comentarios: document.getElementById('pet-comentarios').value
-          })
+          body: formData
       });
       const updatedPet = await response.json();
       
       if (!response.ok) {
           throw new Error('Erro ao salvar o pet');
       }
+      console.log(updatedPet)
 
-      console.log(updatedPet); 
       alert('Pet atualizado com sucesso!');
       const botaoAdicionar=document.getElementById("botao-salvar");
       botaoAdicionar.innerText='Adicionar';

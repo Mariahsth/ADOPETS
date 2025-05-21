@@ -1,4 +1,6 @@
 import pet from "../models/Pets.js";
+import { cloudinary } from "../config/cloudinaryConfig.js";
+
 
 class PetController {
     static async listarPets(req, res) {
@@ -22,7 +24,6 @@ class PetController {
 
     static async cadastrarPet(req, res) {
         try {
-            console.log(req.file)
             const imageUrl = req.file?.path; // URL do Cloudinary
 
             const {
@@ -42,7 +43,8 @@ class PetController {
                 castrado,
                 vermifugado,
                 comentarios,
-                imagem: imageUrl || ''
+                imagem: imageUrl || '',
+                imagemPublicId: req.file.filename
             });
 
             const petSalvo = await novoPet.save();
@@ -54,8 +56,27 @@ class PetController {
 
     static async atualizarPet(req, res) {
         try {
+
             const id = req.params.id;
-            await pet.findByIdAndUpdate(id, req.body);
+            const petExistente = await pet.findById(id);
+
+            // Se tiver imagem antiga, destrua no Cloudinary
+            if (petExistente.imagemPublicId) {
+                try {
+                    await cloudinary.uploader.destroy(petExistente.imagemPublicId,  { resource_type: "image", invalidate: true });
+                } catch (destroyError) {
+                    console.error("❌ Erro ao chamar cloudinary.uploader.destroy():", destroyError);
+                } 
+            }
+            const updateData = {...req.body};
+
+            if (req.file && req.file.path) {
+                updateData.imagem = req.file.path;
+                updateData.imagemPublicId = req.file.filename;
+              }
+
+
+            await pet.findByIdAndUpdate(id, updateData, { new: true });
             res.status(200).json({ message: "Pet atualizado" });
         } catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha na atualização do pet` });
@@ -65,6 +86,17 @@ class PetController {
     static async excluirPet(req, res) {
         try {
             const id = req.params.id;
+            const petExistente = await pet.findById(id);
+
+            // Se tiver imagem antiga, destrua no Cloudinary
+            if (petExistente.imagemPublicId) {
+                try {
+                    await cloudinary.uploader.destroy(petExistente.imagemPublicId,  { resource_type: "image", invalidate: true });
+                } catch (destroyError) {
+                    console.error("❌ Erro ao chamar cloudinary.uploader.destroy():", destroyError);
+                } 
+            }
+
             await pet.findByIdAndDelete(id);
             res.status(200).json({ message: "Pet deletado com sucesso" });
         } catch (erro) {
