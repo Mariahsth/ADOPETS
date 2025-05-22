@@ -48,7 +48,7 @@ main {
   }
 
   .banner >h2{
-    color: rgb(85, 85, 82); 
+    color: rgb(121, 121, 117); 
     font-weight: 300;
     font-family: var(--font-secundary);
 
@@ -161,7 +161,8 @@ h3{
     padding: 0.5em;
     border: transparent;
     font-family: var(--font-secundary);
-    color: var(--quaternary-color)
+    color: var(--quaternary-color);
+    background-color: white;
 }
 
 
