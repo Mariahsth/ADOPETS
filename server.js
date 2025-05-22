@@ -9,6 +9,8 @@ import { fileURLToPath } from 'url';  //usada para converter um URL de arquivo (
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
+
 // Configuração do servidor Express para servir arquivos estáticos (CSS, JS, imagens)
 app.use(express.static(path.join(__dirname, 'public'))); 
 app.use('/uploads', express.static(path.join(__dirname, 'src','uploads')));  

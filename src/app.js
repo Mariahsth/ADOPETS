@@ -7,12 +7,26 @@ import path from "path";
 
 const app=express();        
 
-app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+const allowedOrigins = [
+  "http://127.0.0.1:5500",    // dev local
+  "https://adopets-7b387y4jy-mariahs-projects-e924f2e3.vercel.app"  // front em produção
+];
 
 app.use(cors({
-    origin: 'http://127.0.0.1:5500', 
-    credentials: true, 
-  }));
+  origin: function(origin, callback) {
+    // permitir requests sem origin (Postman, por exemplo) ou os que estiverem na lista
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS não permitido para origem " + origin));
+    }
+  },
+  credentials: true
+}));
+
+app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+
+
 
 app.use(express.json());
 
