@@ -1,6 +1,6 @@
 //petsRoutes.js
 import express from "express";
-import PetController from "../controllers/petController.js";
+import PetController from "../controllers/PetController.js";
 import { upload } from "../config/mutlerConfig.js";  
 
 
