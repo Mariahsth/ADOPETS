@@ -10,7 +10,7 @@ const app=express();
 app.use(cors({
   origin: [
     "http://127.0.0.1:5500",
-    "https://adopets-cc4vzgb42-mariahs-projects-e924f2e3.vercel.app"
+    "https://adopets-eight.vercel.app/"
   ],
   credentials: true
 }));
