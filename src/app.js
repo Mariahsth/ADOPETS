@@ -1,11 +1,8 @@
-
 import express from "express";
 import conectaNaDatabase from "./config/dbConnect.js";		
 import routes from "./routes/index.js";
 import cors from "cors";
 import path from "path";
-
-const app=express();        
 
 const allowedOrigins = [
   "http://127.0.0.1:5500",    // dev local
@@ -24,6 +21,7 @@ app.use(cors({
   credentials: true
 }));
 
+const app=express();        
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
 
