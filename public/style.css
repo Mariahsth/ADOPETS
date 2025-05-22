@@ -117,6 +117,7 @@ h1{
     color: var(--secundary-color);
     text-align: center;
     padding-bottom: 0em;
+    margin-top: 4rem;
     
 }
 
@@ -473,6 +474,8 @@ label{
 
     h1{
         font-size: 3rem;
+        margin-top: 8rem;
+
     }
 
     h2{
