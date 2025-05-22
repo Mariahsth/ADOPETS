@@ -1,5 +1,6 @@
 
 import { atualizaPet, cadastrarPet, excluirPet, listarPets } from "./api.js";
+import { alteraVisibilidadeForm } from "./main.js";
 
 
 export const renderPetsList = (pets) => {
@@ -103,6 +104,13 @@ export function limparFormulario() {
 }
 
 export function editarPets(pet){
+ 
+  const sectionForm = document.getElementById("form-container");
+  const visivel = sectionForm.style.display === "flex";
+  if (sectionForm.style.display = !visivel) {
+    alteraVisibilidadeForm()
+  }
+
   document.getElementById('pet-nome').value = pet.nome;
   document.getElementById('pet-especie').value = pet.especie;
   document.getElementById('pet-raca').value = pet.raca;
@@ -115,10 +123,7 @@ export function editarPets(pet){
   document.getElementById('pet-comentarios').value = pet.comentarios;
   document.getElementById("pet-form").scrollIntoView()
 
-  const botaoAtualizar=document.getElementById("botao-salvar");
-  botaoAtualizar.innerText='Atualizar';
-  botaoAtualizar.onclick = (e) => atualizaPet(pet, e);
- 
+  
 }
 
 

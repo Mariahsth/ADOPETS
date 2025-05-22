@@ -20,9 +20,7 @@ function init() {
   const sectionForm = document.getElementById("form-container");
 
   botaoDisplayForm.addEventListener("click", () => {
-    const visivel = sectionForm.style.display === "flex";
-    sectionForm.style.display = visivel ? "none" : "flex";
-    botaoDisplayForm.textContent = visivel ? "˅ Cadastrar novo animal" : "^ Ocultar formulário";
+  alteraVisibilidadeForm()
   });
 
 
@@ -37,6 +35,14 @@ function init() {
     limparFormulario
     location.reload();
   });
+}
+
+export function alteraVisibilidadeForm(){
+  const botaoDisplayForm = document.getElementById("toggleFormBtn");
+  const sectionForm = document.getElementById("form-container");
+  const visivel = sectionForm.style.display === "flex";
+  sectionForm.style.display = visivel ? "none" : "flex";
+  botaoDisplayForm.textContent = visivel ? "˅ Cadastrar novo animal" : "^ Ocultar formulário";
 }
 
 
