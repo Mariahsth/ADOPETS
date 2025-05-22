@@ -4,6 +4,8 @@ import routes from "./routes/index.js";
 import cors from "cors";
 import path from "path";
 
+const app=express();        
+
 const allowedOrigins = [
   "http://127.0.0.1:5500",    // dev local
   "https://adopets-cc4vzgb42-mariahs-projects-e924f2e3.vercel.app/"  // front em produção
@@ -21,7 +23,6 @@ app.use(cors({
   credentials: true
 }));
 
-const app=express();        
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
 
