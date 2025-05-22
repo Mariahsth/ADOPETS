@@ -10,6 +10,7 @@ Página de adoção de pets utilizando requisições HTTP pelo Javascript
 * HTML
 * CSS
 * JavaScript
+* Node.js
 * Express
 * MongoDB
 * Mongoose
