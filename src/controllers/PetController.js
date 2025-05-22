@@ -44,7 +44,8 @@ class PetController {
                 vermifugado,
                 comentarios,
                 imagem: imageUrl || '',
-                imagemPublicId: req.file.filename
+                imagemPublicId: req.file.filename,
+                favorito: false
             });
 
             const petSalvo = await novoPet.save();
@@ -80,6 +81,25 @@ class PetController {
             res.status(200).json({ message: "Pet atualizado" });
         } catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha na atualização do pet` });
+        }
+    }
+    static async atualizarFavorito(req, res) {
+        try {
+
+            const id =req.params.id;
+            const petEncontrado=await pet.findById(id)
+
+
+            if (!petEncontrado){
+                return res.status(404).json({message:"Pet não encontrado"});
+            }
+            petEncontrado.favorito=!petEncontrado.favorito
+            await petEncontrado.save();
+            res.status(200).json(petEncontrado)
+
+
+        } catch (error) {
+            res.status(500).json({message:"Erro ao atualizar o favorito", error: error.message})
         }
     }
 

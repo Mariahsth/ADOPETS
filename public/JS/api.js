@@ -110,3 +110,33 @@ export async function atualizaPet(pet, e) {
       throw error; 
   }
 }
+
+
+export async function atualizarFavorito(pet) {
+  try {
+    const petAtualizado={
+      ...pet, 
+      favorito:!pet.favorito
+    }
+    console.log(petAtualizado)
+
+    const response = await fetch(`${API_URL}/${pet._id}/favorito`, {
+      method: 'PATCH', 
+      headers: {
+        'Content-Type': 'application/json' 
+    },
+      body: JSON.stringify(petAtualizado)
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao atualizar pet");
+    }
+
+    const updatedPet = await response.json();
+    return updatedPet;
+      
+  } catch (error) {
+      alert("Erro ao atualizar o favorito");
+      throw error;
+  }
+}

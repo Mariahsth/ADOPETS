@@ -1,5 +1,5 @@
 
-import { atualizaPet, cadastrarPet, excluirPet, listarPets } from "./api.js";
+import { atualizaPet, atualizarFavorito, cadastrarPet, excluirPet, listarPets } from "./api.js";
 import { alteraVisibilidadeForm } from "./main.js";
 
 
@@ -57,21 +57,27 @@ export const renderPetsList = (pets) => {
         </button>
           <p class="nome_botao"> Editar </p>
         </button>
-        <button class="botao-favoritar" id="botao_favoritar">
-          <img src="./assets/favorite_outline.png" class="botao_icone">
+        <button class="botao-favoritar">
+          <img src=${pet.favorito? "./assets/favorite.png":"./assets/favorite_outline.png"} class="botao_icone">
         </button>
           <p class="nome_botao"> Favoritar </p>
         </button>
       </div>
     `;
+
+    
+    
     petsListElement.appendChild(petElement);
 
     const editarBtn = petElement.querySelector('.botao_editar');
     editarBtn.addEventListener('click', () => editarPets(pet));
-
+    
     const excluirBtn = petElement.querySelector('.botao_excluir');
     excluirBtn.addEventListener('click', () => excluirPet(pet));
-
+    
+    const favoritarBtn = petElement.querySelector('.botao-favoritar');
+    favoritarBtn.addEventListener('click', () => favoritarPet(pet));
+    
   });
 };
 
@@ -91,9 +97,6 @@ export const submeterFormulario = async (event) => {
     console.error("Erro ao cadastrar pet:", error);
   }
 };
-
-
-
 
 
 export function limparFormulario() {
@@ -129,3 +132,14 @@ export function editarPets(pet){
 }
 
 
+async function favoritarPet(pet){
+  try {
+    
+      await atualizarFavorito(pet);
+      const pets = await listarPets();
+      renderPetsList(pets);
+  } catch (error) {
+      alert("Erro no botão favoritar")
+  }
+
+}

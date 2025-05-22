@@ -11,5 +11,6 @@ routes.get("/pets/:id", PetController.listarPetPorId);
 routes.post("/pets", upload.single('imagem'), PetController.cadastrarPet);
 routes.put("/pets/:id", upload.single('imagem'), PetController.atualizarPet);	
 routes.delete("/pets/:id", PetController.excluirPet);	
+routes.patch('/pets/:id/favorito', PetController.atualizarFavorito);
 
 export default routes;
