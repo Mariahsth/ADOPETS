@@ -1,8 +1,8 @@
 :root{
     --background-color-body: rgba(207, 207, 205, 0.589);
-    --primary-color: #f7f5f09a;
+    --primary-color: #f7f5f0a8;
     --secundary-color: #b87d4d;
-    --terciary-color: rgba(165, 132, 94, 0.486);;
+    --terciary-color: rgba(165, 132, 94, 0.486);
     --quaternary-color: #577b8d;
     --font-primary: "Raleway", sans-serif;
     --font-secundary:"Inconsolata", monospace;;
@@ -36,18 +36,34 @@ main {
 }
 
 .banner {
+    position: relative;
     min-width: 100%;
     height: 400px;
-    background-image: url('./assets/hanna2.jpg');
-    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid var(--terciary-color);
-    filter: blur(1px);
-    color: white;
+    overflow: hidden;
+    z-index: 0;
+  }
 
-}
+  .banner >h2{
+    color: rgba(116, 116, 113, 0.589); 
+    font-weight: 300;
+
+  }
+  
+  .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/hanna2.jpg');
+    background-size: cover;
+    filter: blur(2px);
+    z-index: -1;
+  }
 
 .banner_container{
     display: flex;
@@ -391,7 +407,7 @@ label{
     }
 
     .lista-item-pet{
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         
     }
     .botao_icone{
@@ -404,7 +420,12 @@ label{
         height: 150px;
     }
     .botao_icone{
-        width: 0.8rem;
+        width: 1.0rem;
+        height: auto;
+    }
+    .div-botoes{
+
+        gap:1em;
     }
 }
 @media (max-width: 350px){
