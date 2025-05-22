@@ -5,25 +5,6 @@ import "dotenv/config";         //variavel de ambiente
 import app from "./src/app.js"; 	//app é onde está salvoo express()
 import path from "path"; //ferramenta que permite manipular caminhos de arquivos e diretórios de maneira mais fácil e segura
 import { fileURLToPath } from 'url';  //usada para converter um URL de arquivo (representado como uma string no formato file://) para um caminho de sistema de arquivos adequado (um caminho no formato de sistema de arquivos local C:\Users\Usuario\arquivo.txt no Windows).
-import cors from "cors";
-
-
-const allowedOrigins = [
-  "http://127.0.0.1:5500",    // dev local
-  "https://adopets-cc4vzgb42-mariahs-projects-e924f2e3.vercel.app/"  // front em produção
-];
-
-app.use(cors({
-  origin: function(origin, callback) {
-    // permitir requests sem origin (Postman, por exemplo) ou os que estiverem na lista
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("CORS não permitido para origem " + origin));
-    }
-  },
-  credentials: true
-}));
 
 
 const __filename = fileURLToPath(import.meta.url);

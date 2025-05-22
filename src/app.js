@@ -6,20 +6,12 @@ import path from "path";
 
 const app=express();        
 
-const allowedOrigins = [
-  "http://127.0.0.1:5500",    // dev local
-  "https://adopets-cc4vzgb42-mariahs-projects-e924f2e3.vercel.app/"  // front em produção
-];
 
 app.use(cors({
-  origin: function(origin, callback) {
-    // permitir requests sem origin (Postman, por exemplo) ou os que estiverem na lista
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("CORS não permitido para origem " + origin));
-    }
-  },
+  origin: [
+    "http://127.0.0.1:5500",
+    "https://adopets-cc4vzgb42-mariahs-projects-e924f2e3.vercel.app"
+  ],
   credentials: true
 }));
 
