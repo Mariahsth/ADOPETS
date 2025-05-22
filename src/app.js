@@ -6,12 +6,20 @@ import path from "path";
 
 const app=express();        
 
+const allowedOrigins = [
+  "http://127.0.0.1:5500",
+  "https://adopets-eight.vercel.app"
+];
 
 app.use(cors({
-  origin: [
-    "http://127.0.0.1:5500",
-    "https://adopets-eight.vercel.app/"
-  ],
+  origin: function (origin, callback) {
+    // Permitir chamadas sem origin (como Postman) ou de origens permitidas
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS não permitido para origem: " + origin));
+    }
+  },
   credentials: true
 }));
 
