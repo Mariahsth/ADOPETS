@@ -3,8 +3,8 @@ Novos requisitos:
 Colocar imagem dos pets OK
 Limitar quantidade de pets por página
 inserir funcionalidade dos filtros
-Inserir funcionalidade de editar (iniciou) e apagar
-Ao apagar, também apagar a imagem salva em upload
+Inserir funcionalidade de editar e apagar OK
+Ao apagar e editar, também apagar a imagem salva em upload OK
 
 Inserir cadastro administrador e cliente:
 -->Sala de clientes:

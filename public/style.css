@@ -252,6 +252,12 @@ label{
     color: var(--quaternary-color);
 }
 
+.ativo{
+    background-color: var(--background-color-body);
+    border: 1px solid var(--quaternary-color);
+    color: var(--quaternary-color);
+}
+
 #lista-pets{
    
     gap: 3em;

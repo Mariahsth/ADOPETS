@@ -3,15 +3,34 @@
 import { listarPets } from './api.js';
 import { limparFormulario, renderPetsList, submeterFormulario } from './ui.js';
 
+let filtrarFavoritos = false;
+
+const filtroFavoritosBtn = document.getElementById("filtro-favoritos");
+
+filtroFavoritosBtn.addEventListener("click", () => {
+  filtrarFavoritos = !filtrarFavoritos;
+  filtroFavoritosBtn.classList.toggle("ativo");
+  renderizarPets(); 
+});
 
 async function renderizarPets() {
+
   try {
-    const pets = await listarPets();  
-    renderPetsList(pets);  
+    const pets = await listarPets();
+
+    const petsFiltrados = filtrarFavoritos
+      ? pets.filter((pet) => pet.favorito === true)
+      : pets;
+
+    renderPetsList(petsFiltrados);
   } catch (error) {
     console.error("Erro ao renderizar pets:", error);
   }
+  
 }
+
+
+
 
 function init() {
   renderizarPets();
@@ -35,6 +54,10 @@ function init() {
     limparFormulario
     location.reload();
   });
+
+
+
+
 }
 
 export function alteraVisibilidadeForm(){
