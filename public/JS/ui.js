@@ -123,7 +123,9 @@ export function editarPets(pet){
   document.getElementById('pet-comentarios').value = pet.comentarios;
   document.getElementById("pet-form").scrollIntoView()
 
-  
+  const botaoAtualizar=document.getElementById("botao-salvar");
+  botaoAtualizar.innerText='Atualizar';
+  botaoAtualizar.onclick = (e) => atualizaPet(pet, e);
 }
 
 
