@@ -15,6 +15,17 @@ async function renderizarPets() {
 
 function init() {
   renderizarPets();
+
+  const botaoDisplayForm = document.getElementById("toggleFormBtn");
+  const sectionForm = document.getElementById("form-container");
+
+  botaoDisplayForm.addEventListener("click", () => {
+    const visivel = sectionForm.style.display === "flex";
+    sectionForm.style.display = visivel ? "none" : "flex";
+    botaoDisplayForm.textContent = visivel ? "˅ Cadastrar novo animal" : "^ Ocultar formulário";
+  });
+
+
   const botaoSalvar=document.getElementById("botao-salvar");
   botaoSalvar.addEventListener("click", (e) => {
     if (botaoSalvar.innerText === 'Adicionar') {
