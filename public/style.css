@@ -31,6 +31,7 @@ main {
     align-items: center;
     margin: 5% 8%;
     border-radius: 30px;
+    box-sizing: border-box;
     
 }
 
@@ -65,11 +66,13 @@ h1, h2{
 h1{
     font-size: 64px;
     color: var(--secundary-color);
+    text-align: center;
     
 }
 h2{
     font-size: 47px;
     color: var(--secundary-color);
+    text-align: center;
 
 }
 h3{
@@ -110,6 +113,9 @@ h3{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+
+
 }
 
 
@@ -146,7 +152,6 @@ label{
     gap:5%;
     padding-top: 5%;
     margin-bottom: 2em;
-   
 }
 
 #pet-form {
@@ -191,6 +196,7 @@ label{
     list-style-type: none;
     margin: 4% 0;
 
+
 }
 
 .lista-filtros-item{
@@ -202,7 +208,6 @@ label{
     color: var(--primary-color);
     font-size: 15px;
     cursor: pointer;
-
 }
 
 .lista-filtros-item:hover{
@@ -218,13 +223,14 @@ label{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 4%;
+    justify-items: center;
 }
 
 .lista-item-pet{
     background-color: var(--terciary-color);
     border-radius: 8px;
     list-style: none;
-    max-width: 100%;
+    width: 80%;
     height: auto;
     text-align: center;
     padding: 1em;
@@ -284,73 +290,162 @@ label{
 @media (max-width: 950px){
 
     #pet-form {
-        width: 400px;
+        width: 30rem;
     }
-    #lista-pets{
-        width: auto;
+    #form-container{
+        width: 100%;
     }
 
-    .container-lista{
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        width: 100%;
-        flex-wrap:wrap;
+    #lista-pets{
+        width: auto;
     }
 
     main {
         margin: 5% 10%;
     }
-    body {
-        background-position:45%;
+
+
+    .banner {
+        height: 300px;
+    }
+    .lista-item-pet{
+        margin: 1rem;
+    }
+
+    .nome_botao{
+        display: none;
+    }
+
+    .botao_icone{
+        width: 1rem;
+        height: auto;
     }
 
 }
 
-@media (max-width: 680px){
-    h1{
-        text-align: center;
+@media (max-width: 700px){
+
+    .banner {
+        height: 200px;
     }
 
     #pet-form {
         width: 95%;
     }
 
-    .form-botoes{
-        gap:1%;
-    }
-
-    #botao-salvar, #botao-cancelar {
-        padding: 0.8em 1.5em;
-    }
-
     #lista-pets{
-        width: auto;
-        justify-content: center;
-    }
-
-    .container-principal {
-        width: 100%;
+        gap:0;
+        max-width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     main {
         margin: 5% 5%;
     }
-}
-@media (max-width: 450px){
-    #botao-salvar, #botao-cancelar {
-        padding: 0.8em 0.5em;
+
+    .lista-filtros-item{
+        max-width: 20%;
+        display: flex;
+        justify-content: center;
+        padding: 1em 1.5em;
+        font-size: 0.7rem;
+    }
+
+    .lista-item-pet{
+        font-size: 0.8rem;
     }
 
     h1{
-        font-size: 30px;
-        text-align: center;
+        font-size: 3rem;
     }
 
     h2{
-        text-align: center;
+        font-size: 2rem;
     }
-    body {
-        background-position:48%;
+    h3{
+        font-size: 1.3rem;
     }
+
+}
+@media (max-width: 550px){
+    #botao-salvar, #botao-cancelar {
+        padding: 0.9em 0.7em;
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+
+    h2{
+        font-size: 1.3rem;
+    }
+    h3{
+        font-size: 1.0rem;
+    }
+
+    label{
+        font-size: 0.9rem;
+    }
+    .form_placeholder{
+        font-size: 0.8rem;
+    }
+
+    .lista-item-pet{
+        font-size: 0.7rem;
+        
+    }
+    .botao_icone{
+        width: 0.7rem;
+    }
+
+}
+@media (max-width: 480px){
+    .banner {
+        height: 150px;
+    }
+    .botao_icone{
+        width: 0.8rem;
+    }
+}
+@media (max-width: 350px){
+    .banner {
+        height: 120px;
+    }
+    .botao_icone{
+        width: 0.6rem;
+    }
+}
+
+
+
+
+@media (max-width: 290px){
+    
+    h1{
+        font-size: 1.5rem;
+    }
+
+    h2{
+        font-size: 1.0rem;
+    }
+    h3{
+        font-size: 0.8rem;
+    }
+
+    label{
+        font-size: 0.7rem;
+    }
+    .form_placeholder{
+        font-size: 0.6rem;
+    }
+
+    .lista-item-pet{
+        font-size: 0.6rem;
+        
+    }
+
+    .banner {
+        height: 100px;
+    }
+
 }
