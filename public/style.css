@@ -35,7 +35,40 @@ main {
     
 }
 
+.lista_header{
+    padding: 1rem 0rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap:15rem;
+    align-items: center;
+    color: var(--terciary-color);
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color : #e1e1e0;
+    background-blend-mode: lighten;
+    border-bottom: 1px solid var(--terciary-color);
+
+}
+.lista_header>li{
+    list-style: none;
+    cursor: pointer;
+}
+.nav_header {
+    text-decoration: none;
+    color: var(--terciary-color);
+
+}
+.nav_header:hover{
+    color: var(--quaternary-color);
+
+}
+
 .banner {
+    margin-top: 50px;
     position: relative;
     min-width: 100%;
     height: 400px;
@@ -60,7 +93,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./assets/hanna2.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(104, 102, 102, 0.2)), url('./assets/hanna2.jpg');
     background-size: cover;
     filter: blur(2px);
     z-index: -1;
@@ -76,7 +109,6 @@ main {
 
 h1, h2{
     font-family: var(--font-primary);
-    padding: 1em;
     font-weight: 300;
 }
 
@@ -92,12 +124,21 @@ h1{
     font-size: 1.5rem;
     color: var(--terciary-color);
     text-align: center;
-    padding-top: 2em;
+    padding: 2em 0 1em 0;
+}
+
+.frase_contato{
+    font-size: 1rem;
+    color: var(--terciary-color);
+    text-align: center;
+    padding-bottom: 10em;
 }
 h2{
     font-size: 47px;
     color: var(--secundary-color);
     text-align: center;
+    padding: 1em;
+
 
 }
 h3{
@@ -119,7 +160,7 @@ h3{
     color: var(--terciary-color);
     font-weight: 700;
     cursor: pointer;
-    margin-bottom: 4rem;
+    margin: 4rem 0;
 }
 
 .container-principal {
@@ -133,7 +174,7 @@ h3{
 #form-container{
     padding: 1% 0;
     width: 70%;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -145,7 +186,7 @@ h3{
 }
 
 .container-lista{
-    margin-top: 5%;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -329,8 +370,32 @@ label{
     color: var(--background-color-body);
 }
 
+
+.rodape{
+    color: var(--terciary-color);
+    font-weight:500 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
+    border-top: 0.2px solid var(--terciary-color);
+    gap: 1rem;
+    
+}
+.rodape > p{
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
 @media (max-width: 950px){
 
+
+    .lista_header{
+        gap:8rem;
+    }
     .fraseDeEfeito{
         max-width: 90%;
     }
@@ -375,6 +440,9 @@ label{
 }
 
 @media (max-width: 700px){
+    .lista_header{
+        gap:4rem;
+    }
 
     .banner {
         height: 200px;
@@ -444,13 +512,22 @@ label{
 
 }
 @media (max-width: 480px){
+    .lista_header{
+        gap:2rem;
+        font-size: 0.8rem;
+    }
     .banner {
         height: 150px;
+        margin-top: 40px;
     }
 
     .fraseDeEfeito{
         font-size: 1.2rem;
         padding-bottom: 1.5rem;
+    }
+    .frase_contato{
+        font-size: 0.9rem;
+        margin-bottom: 3rem;
     }
     .botao_icone{
         width: 1.0rem;
@@ -474,9 +551,23 @@ label{
         margin-bottom: 2rem;
         font-size: 0.7rem;
     }
+    .rodape > p{
+        font-size: 1.5rem;
+
+    }
+
+    .rodape{
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        
+    }
 
 }
 @media (max-width: 350px){
+    .lista_header{
+        gap:1rem;
+        font-size: 0.7rem;
+    }
     .banner {
         height: 120px;
     }
@@ -522,6 +613,9 @@ label{
 
     .banner {
         height: 100px;
+    }
+    .lista_header{
+        font-size: 0.6rem;
     }
 
 }

@@ -36,8 +36,6 @@ function init() {
   renderizarPets();
 
   const botaoDisplayForm = document.getElementById("toggleFormBtn");
-  const sectionForm = document.getElementById("form-container");
-
   botaoDisplayForm.addEventListener("click", () => {
   alteraVisibilidadeForm()
   });
@@ -63,9 +61,13 @@ function init() {
 export function alteraVisibilidadeForm(){
   const botaoDisplayForm = document.getElementById("toggleFormBtn");
   const sectionForm = document.getElementById("form-container");
-  const visivel = sectionForm.style.display === "flex";
+  const estiloAtual = window.getComputedStyle(sectionForm).display;
+  const visivel = estiloAtual === "flex";
+
   sectionForm.style.display = visivel ? "none" : "flex";
-  botaoDisplayForm.textContent = visivel ? "˅ Cadastrar novo animal" : "^ Ocultar formulário";
+  botaoDisplayForm.textContent = visivel
+    ? "˅ Cadastrar novo animal"
+    : "^ Ocultar formulário";
 }
 
 
