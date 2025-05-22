@@ -1,7 +1,7 @@
 // main.js
 
-import { atualizaPet, listarPetPorId, listarPets } from './api.js';
-import { editarPets, limparFormulario, renderPetsList, submeterFormulario } from './ui.js';
+import { listarPets } from './api.js';
+import { limparFormulario, renderPetsList, submeterFormulario } from './ui.js';
 
 
 async function renderizarPets() {

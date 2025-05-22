@@ -1,6 +1,6 @@
 // api.js
 
-const API_URL = "http://localhost:3000/pets"; 
+const API_URL = "https://adopets-ndrs.onrender.com/pets"; 
 
 
 export async function listarPets() {
@@ -17,7 +17,7 @@ export async function listarPets() {
 export async function cadastrarPet(formData) {
 
   try {
-    const response = await fetch('http://localhost:3000/pets', {
+    const response = await fetch(API_URL, {
       method: 'POST',
       body: formData
     });
