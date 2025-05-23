@@ -15,7 +15,7 @@ export const renderPetsList = (pets) => {
 
 
     petElement.innerHTML = `
-      <h3>${pet.nome}</h3>
+      <h3 class="nome_pet">${pet.nome}</h3>
       <div class="linha">
       <p class="parametro-item-lista">Espécie: </p><p> ${pet.especie}</p>
       </div>

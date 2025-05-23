@@ -17,22 +17,45 @@
     <div id="home" class="banner_container">
       <nav>
         <ul class="lista_header">
-          <li><a href="#home" class="nav_header">Início</a></li>
-          <li><a href="#cadastro" class="nav_header">Cadastro de animais</a></li>
-          <li><a href="#pets" class="nav_header">Pets disponíveis</a></li>
+          <li><a href="#home" class="nav_header"><img src="./assets/house.svg"/>Início</a></li>
+          <li><a href="#cadastro" class="nav_header"><img src="./assets/note-pencil.svg"/>Cadastro de animais</a></li>
+          <li><a href="#pets" class="nav_header"><img src="./assets/paw-print.svg"/>Pets disponíveis</a></li>
         </ul>
 
       </nav>
       
       <div  class="banner">
         <div class="banner-bg"></div>
-        <h2>Salve uma vida, adote</h2>
+        <h1 ><img src="./assets/paws.png" class="icone-patas">Adopets</h1>
       </div>
     </div>
   </header>
   <main>
 
-        <h1 ><img src="./assets/paws.png" class="icone-patas">Adopets</h1>
+        <section class="passo-a-passo">
+          <h2 class="titulo_passo-a-passo">Adote, Mude uma Vida </h2>
+          <div class="div_icone-hand-heart">
+            <img src="./assets/hand-heart.svg"  class="icone-hand-heart"/>
+
+          </div>
+          
+          <h3 class="titulo_texto">Como Funciona a Adoção?</h3>
+          <div class="container_texto">
+            <p class="fraseDeEfeito">
+              1 - Escolha seu novo amigo: Navegue pelos perfis dos animais disponíveis. </p>
+              <p class="fraseDeEfeito">2 - Entre em contato: Aqui iremos te enviar um formulário para preenchimento. </p>
+              <p class="fraseDeEfeito">3 - Preencha o formulário: Queremos garantir que cada adoção seja consciente e responsável.</p>
+              <p class="fraseDeEfeito">4 - Visita e entrevista: Nossa equipe entrará em contato para conhecer você e sua rotina.</p>
+              <p class="fraseDeEfeito">5 - Adoção com responsabilidade: Após a aprovação, você leva pra casa um novo membro da família.</p>
+          </div>
+          <h3 class="titulo_texto">Quem Pode Adotar?</h3>
+          <div class="container_texto">
+            <p class="fraseDeEfeito">Maiores de 18 anos com documento de identidade</p>
+            <p class="fraseDeEfeito">Pessoas que moram em residências seguras e têm tempo e recursos para cuidar de um pet</p>
+            <p class="fraseDeEfeito">Quem entende que adotar é um compromisso para a vida toda</p>
+
+          </div>
+        </section>
         <p class="fraseDeEfeito">Adotar é mais do que um gesto de amor — é transformar vidas, inclusive a sua.</p>
         <p class="fraseDeEfeito frase_contato">contato@adopets.com</p>
         <hr class="linha_divisoria">
@@ -40,7 +63,7 @@
         <section class="container-principal" id="cadastro">
           <button id="toggleFormBtn">^ Ocultar formulário</button>
             <section id="form-container">
-              <h2>Cadastro de animal</h2>
+              <h2><img src="./assets/note-pencil.svg" class="icones_conteudo"/>  Cadastro de animal</h2>
 
                 <form id="pet-form" enctype="multipart/form-data">
                   <input type="hidden" id="pet-id" />
@@ -231,8 +254,8 @@
         
 
         <section class="container-lista">
-          <h2 id="pets">Pets disponíveis para adoção</h2>
-          <h3>Filtros</h3>
+          <h2 id="pets"><img src="./assets/paw-print.svg" class="icones_conteudo"/>Pets disponíveis para adoção</h2>
+          <h3>Filtrar por:</h3>
           <div class="lista-filtros">
             <!-- <button class="lista-filtros-item">Espécie</button></li>
             <button class="lista-filtros-item">Idade</button></li>
@@ -248,8 +271,9 @@
     <script type="module" src="./JS/ui.js"></script>
     <script type="module" src="./JS/main.js"></script>
     <footer class="rodape">
-      <p >Adopets<img src="./assets/paws.png" class="icone-patas"></p>
-      Se interessou por algum animal? Entre em contato: contato@adopets.com
+      <h4 >Adopets<img src="./assets/paws.png" class="icone-patas"></h4>
+      Se interessou por algum animal? Entre em contato: 
+      <p><img src="./assets/envelope.svg" class="icone_email"/>contato@adopets.com</p>
 
     </footer>
 </body>
