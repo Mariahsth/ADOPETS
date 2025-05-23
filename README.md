@@ -1,9 +1,11 @@
 # Adopets  
 Página de adoção de pets utilizando requisições HTTP pelo Javascript   
 
-![adopets](https://github.com/user-attachments/assets/3854cc33-636c-4d7c-ae72-d5f1bb848d8f)
-![cadastro](https://github.com/user-attachments/assets/4e142e5b-1f00-4485-9784-6d0271d009c8)
-![pets](https://github.com/user-attachments/assets/f7357741-c2a6-4a0a-a41b-99cd192ba0ef)
+
+![adopets](https://github.com/user-attachments/assets/e61b1b43-06af-4e2a-8b4e-a14a3e4e4bb5)
+![cadastro](https://github.com/user-attachments/assets/70d388ca-9f08-4838-bffa-6df5d9f6df9b)
+![pets](https://github.com/user-attachments/assets/c0acb353-2786-4bc6-ac5a-f6dedb16da9e)
+
 
 
 ## ✔️ Principais tecnologias utilizadas
