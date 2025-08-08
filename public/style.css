@@ -236,10 +236,6 @@ h3{
     height: 1em;
 }
 
-
-
-
-
 .container-lista{
     margin-top: 5rem;
     display: flex;
@@ -276,8 +272,6 @@ h3{
     font-weight: 700;
     border: 1px solid ;
     cursor: pointer;
-
-
 }
 
 .div-botoes{
@@ -287,7 +281,6 @@ h3{
     gap:0.1em;
     margin-top: 2rem;
 }
-
 
 .lista-filtros{
     width: 100%;
@@ -347,10 +340,7 @@ h3{
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     border: 3px solid var(--black-smooth-color);
     cursor: pointer;
-
 }
-
-
 
 .lista-item-pet:hover {
   transform: scale(1.02);
@@ -360,14 +350,11 @@ h3{
 
 .linha>p{
     font-family: var(--font-primary);
-    
-
 }
 
 .parametro-item-lista{
     color: var(--secundary-color);
     font-family: var(--font-primary);
-
 }
 
 .titulo_passo-a-passo{
@@ -376,7 +363,6 @@ h3{
     color: var(--black-color);
     font-weight: 500;
 }
-
 
 .linha {
     display: flex;
@@ -391,7 +377,6 @@ h3{
     border: 1px solid var(--terciary-color);
     border-radius: 8px;
 }
-
 
 .comentarios-container{
     display: flex;
@@ -422,46 +407,6 @@ h3{
 }
 
 
-.rodape{
-    color: var(--terciary-color);
-    font-weight:500 ;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 0;
-    width: 100%;
-    border-top: 0.2px solid var(--terciary-color);
-    gap: 1rem;
-    font-family: var(--font-primary);
-    font-size: 1.2rem;
-    background-color : #e1e1e0;
-    background-blend-mode: lighten;
-    filter: drop-shadow(0px -4px 6px rgba(0, 0, 0, 0.15));
-
-
-    
-}
-.rodape > h4{
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    color: var(--black-smooth-color);
-}
-.rodape > p{
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap:0.2rem;
-    font-weight: 500;
-    color: var(--black-smooth-color);
-}
-
-.icone_email{
-    width: 1rem;
-    height: auto;
-}
 @media (max-width: 950px){
 
     .fraseDeEfeito{
@@ -591,16 +536,6 @@ h3{
     #lista-pets{
 
         grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-
-    .rodape{
-        gap: 0.5rem;
-        font-size: 0.9rem;
-        
-    }
-    .rodape>h4{
-        font-size: 1.2rem;
-        
     }
 
 }

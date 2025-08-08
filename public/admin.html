@@ -218,8 +218,8 @@
       </section>
   </main>
 
-  <footer class="rodape">
-    <p>Adopets | contato@adopets.com</p>
+  <footer >
+    <div id="rodape-container"></div>
   </footer>
   <script>
     fetch('header.html')
@@ -237,6 +237,11 @@
           linkInicio.href = "index.html";
           logoLink.href = "index.html";
         }
+      });
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('rodape-container').innerHTML = data;
       });
   </script>
 

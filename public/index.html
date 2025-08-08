@@ -91,20 +91,22 @@
 
         
     </main>
+    <footer >
+      <div id="rodape-container"></div>
+    </footer>
     <script type="module" src="./JS/api.js"></script>
     <script type="module" src="./JS/ui.js"></script>
     <script type="module" src="./JS/main.js"></script>
-    <footer class="rodape">
-      <h4 >Adopets<img src="./assets/paws.png" class="icone-patas"></h4>
-      Se interessou por algum animal? Entre em contato: 
-      <p><img src="./assets/envelope.svg" class="icone_email"/>contato@adopets.com</p>
-
-    </footer>
     <script>
       fetch('header.html')
         .then(res => res.text())
         .then(data => {
           document.getElementById('header-container').innerHTML = data;
+        });
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('rodape-container').innerHTML = data;
         });
     </script>
 </body>
