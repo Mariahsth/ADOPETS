@@ -19,11 +19,14 @@
       <nav class="nav_header_container">
         <div class="logo_header">
           <a id="logo-link" href="#home">
-            <img src="./assets/paw-print.svg" alt="logo">
+            <img class="logo_header_icone" src="./assets/paw-print.svg" alt="logo">
             Adopets
           </a>
         </div>
-      
+        
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+          <img src="./assets/menu.svg" alt="Menu">
+        </button>
         <ul class="lista_header">
           
           <li><a id="link-inicio" href="#home" class="nav_header"><img src="./assets/house.svg" />Início</a></li>
@@ -38,6 +41,15 @@
 
     </div>
   </header>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const listaHeader = document.querySelector('.lista_header');
+  
+    menuToggle.addEventListener('click', () => {
+      listaHeader.classList.toggle('ativo');
+    });
+  </script>
+
 
 </body>
 
