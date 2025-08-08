@@ -1,5 +1,3 @@
-// main.js
-
 import { listarPets } from './api.js';
 import { limparFormulario, renderPetsList, submeterFormulario } from './ui.js';
 
@@ -7,11 +5,13 @@ let filtrarFavoritos = false;
 
 const filtroFavoritosBtn = document.getElementById("filtro-favoritos");
 
-filtroFavoritosBtn.addEventListener("click", () => {
-  filtrarFavoritos = !filtrarFavoritos;
-  filtroFavoritosBtn.classList.toggle("ativo");
-  renderizarPets(); 
-});
+if (filtroFavoritosBtn) {
+  filtroFavoritosBtn.addEventListener("click", () => {
+    filtrarFavoritos = !filtrarFavoritos;
+    filtroFavoritosBtn.classList.toggle("ativo");
+    renderizarPets(); 
+  });
+}
 
 async function renderizarPets() {
 
@@ -35,40 +35,28 @@ async function renderizarPets() {
 function init() {
   renderizarPets();
 
-  const botaoDisplayForm = document.getElementById("toggleFormBtn");
-  botaoDisplayForm.addEventListener("click", () => {
-  alteraVisibilidadeForm()
-  });
-
-
-  const botaoSalvar=document.getElementById("botao-salvar");
-  botaoSalvar.addEventListener("click", (e) => {
-    if (botaoSalvar.innerText === 'Adicionar') {
-      submeterFormulario(e);
-    } 
-  });
-  const botaoCancelar=document.getElementById("botao-cancelar");
-  botaoCancelar.addEventListener("click", () =>{
-    limparFormulario
-    location.reload();
-  });
+  const botaoSalvar = document.getElementById("botao-salvar");
+  if (botaoSalvar) {
+    botaoSalvar.addEventListener("click", (e) => {
+      if (botaoSalvar.innerText === 'Adicionar') {
+        submeterFormulario(e);
+      } 
+    });
+  }
+  
+  const botaoCancelar = document.getElementById("botao-cancelar");
+  if (botaoCancelar) {
+    botaoCancelar.addEventListener("click", () => {
+      limparFormulario(); 
+      location.reload();
+    });
+  }
 
 
 
 
 }
 
-export function alteraVisibilidadeForm(){
-  const botaoDisplayForm = document.getElementById("toggleFormBtn");
-  const sectionForm = document.getElementById("form-container");
-  const estiloAtual = window.getComputedStyle(sectionForm).display;
-  const visivel = estiloAtual === "flex";
-
-  sectionForm.style.display = visivel ? "none" : "flex";
-  botaoDisplayForm.textContent = visivel
-    ? "˅ Cadastrar novo animal"
-    : "^ Ocultar formulário";
-}
 
 
 

@@ -25,10 +25,9 @@ body {
     color:var(--primary-color);
     font-family: var(--font-secundary);
     font-weight: 300;
-}
-header{
     max-width: 100vw;
 }
+
 main {
     display: flex;
     flex-direction: column;
@@ -36,51 +35,7 @@ main {
     margin: 1rem;
     border-radius: 30px;
     box-sizing: border-box;
-    
-}
-.nav_header_container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #e1e1e0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--terciary-color);
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-    max-width: 100vw;
-  }
-  .logo_header {
-    flex: 1;
-  }
-  
-  .logo_header a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: var(--black-color);
-    font-weight: 700;
 
-  }
-  
-  .lista_header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 2;
-    gap: 4rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-  }
-.icone_header{
-    width: auto;
-    height: 2em;
     
 }
 
@@ -88,24 +43,7 @@ main {
     font-size: 20px;
     padding-top: 0.2rem;
 }
-.lista_header>li{
-    list-style: none;
-    cursor: pointer;
-    
-}
-.nav_header {
-    text-decoration: none;
-    color: var(--terciary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.nav_header:hover{
-    color: var(--quaternary-color);
 
-}
 
 .banner {
     margin-top: 50px;
@@ -119,6 +57,7 @@ main {
     border: 1px solid var(--terciary-color);
     overflow: hidden;
     z-index: 0;
+    width: 100vw;
   }
 
   .banner >h2{
@@ -168,17 +107,54 @@ h1{
     color: var(--secundary-color);
     font-weight: 300;
     text-align: start;
+}
 
+.container_item_passo_a_passo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.container_icone_passo_a_passo{
+    background-color: var(--secundary-color);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
 
+}
+.icone_passo_a_passo{
+    width: 50px;
 }
 .container_texto{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-bottom: 2rem;
+    gap:2rem;
+    margin: 2rem ;
     font-family: var(--font-primary);
+}
+
+.container_quem_pode_adotar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+
+}
+.lista{
+    flex-direction: column;
+    gap:0rem;
+}
+
+.lista> .fraseDeEfeito{
+    margin-top: 0.5em;
 }
 .nome_pet{
     font-weight: 600;
@@ -187,18 +163,23 @@ h1{
 }
 .titulo_texto{
     font-weight: 700;
-    margin: 0 0 2rem 0;
     color:var(--black-smooth-color);
     font-family: var(--font-primary);
+    height: 100%;
+
 }
 
 .passo-a-passo{
-    margin-top: 3rem;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     border-radius: 16px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     padding: 2em;
     background-color: var(--primary-color);
+    margin: 2rem;
 }
 
 .div_icone-hand-heart{
@@ -211,19 +192,19 @@ h1{
     width: 3rem;
 }
 .fraseDeEfeito{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--black-smooth-color);
     font-family: var(--font-primary);
     text-align: center;
     font-weight: 600;
-    padding: 2em 0 1em 0;
+    margin-top: 2em;
 }
 
 .frase_contato{
     font-size: 1.2rem;
     color: var(--black-smooth-color);
     text-align: center;
-    padding-bottom: 10em;
+    margin-bottom: 2rem;
 }
 h2{
     font-size: 47px;
@@ -255,42 +236,9 @@ h3{
     height: 1em;
 }
 
-#toggleFormBtn {
-    background-color: var(--terciary-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin: 1rem 0;
-  }
-  
-  #toggleFormBtn:hover {
-    background-color: var(--quaternary-color);
-    color: var(--primary-color);
-  }
 
-.container-principal {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
-#form-container{
-    padding: 1% 0;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary-color);
-    border-radius: 16px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-    margin-bottom: 8rem;
 
-}
 
 .container-lista{
     margin-top: 5rem;
@@ -304,42 +252,10 @@ h3{
 #pets{
     padding-top: 8rem;
 }
-.form_placeholder {
-    border-radius: 8px;
-    padding: 0.5em;
-    border: transparent;
-    font-family: var(--font-primary);
-    color: var(--quaternary-color);
-    background-color: white;
-    font-weight: 500;
-
-}
-
 
 .campo_carregar_imagem {
     background-color: var(--primary-color);
 }
-
-
-label{
-    color: var(--terciary-color);
-    font-family: var(--font-primary);
-    font-weight: 600;
-    
-}
-
-.form_placeholder::placeholder{
-    font-family: var(--font-primary);
-    color: var(--quaternary-color);
-    font-weight: 500;
-    width: 100%;
-}
-
-input[type="file"] {
-    background-color: white;
-    
-  }
-  
 
 .form-botoes{
     display: flex;
@@ -348,14 +264,6 @@ input[type="file"] {
     gap:5%;
     padding-top: 5%;
     margin-bottom: 2em;
-}
-
-#pet-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7em;
-    width: 60%;
-
 }
 
 
@@ -380,9 +288,6 @@ input[type="file"] {
     margin-top: 2rem;
 }
 
-.linha_divisoria{
-    width: 100%;
-}
 
 .lista-filtros{
     width: 100%;
@@ -559,19 +464,8 @@ input[type="file"] {
 }
 @media (max-width: 950px){
 
-
-    .lista_header{
-        gap:3rem;
-    }
     .fraseDeEfeito{
         max-width: 90%;
-    }
-
-    #pet-form {
-        width: 30rem;
-    }
-    #form-container{
-        width: 100%;
     }
 
     #lista-pets{
@@ -607,24 +501,9 @@ input[type="file"] {
 }
 
 @media (max-width: 700px){
-    .lista_header{
-        gap:1rem;
-    }
-    .nav_header{
-        max-width: 150px;
-        width: 100%;
-    }
-    .logo_header {
-        flex: 0;
-        margin-right: 3rem;
-      }
 
     .banner {
         height: 200px;
-    }
-
-    #pet-form {
-        width: 95%;
     }
 
     #lista-pets{
@@ -645,9 +524,6 @@ input[type="file"] {
         font-size: 0.8rem;
     }
 
-
-
-
     h2{
         font-size: 2rem;
     }
@@ -660,12 +536,7 @@ input[type="file"] {
     #botao-salvar, #botao-cancelar {
         padding: 0.9em 0.7em;
     }
-    .lista_header{
-        gap:0.5rem;
-    }
-    .logo_header {
-        margin-right: 0.5rem;
-      }
+ 
     h1{
         font-size: 2rem;
     }
@@ -677,34 +548,13 @@ input[type="file"] {
         font-size: 1.0rem;
     }
 
-    label{
-        font-size: 0.9rem;
-    }
-    .form_placeholder{
-        font-size: 0.8rem;
-    }
-
     .botao_icone{
         width: 0.7rem;
     }
 
 }
 @media (max-width: 480px){
-    .nav_header_container {
-
-        padding: 1rem ;
-
-      }
-    .lista_header{
-        font-size: 0.8rem;
-        justify-content: space-around;
-        gap: 1.5rem;
-        margin-right: 2rem;
-    }
-    .logo_header {
-        font-size: 0.8rem;
-        margin-right: 2rem;
-      }
+ 
     .titulo_passo-a-passo{
         font-size: 1.5rem;
     }
@@ -716,8 +566,6 @@ input[type="file"] {
         font-size: 0.9rem;
 
     }
-
-
 
     .fraseDeEfeito{
         font-size: 1.2rem;
@@ -745,12 +593,6 @@ input[type="file"] {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
-    #toggleFormBtn{
-        margin-bottom: 2rem;
-        font-size: 0.7rem;
-    }
-
-
     .rodape{
         gap: 0.5rem;
         font-size: 0.9rem;
@@ -763,10 +605,7 @@ input[type="file"] {
 
 }
 @media (max-width: 350px){
-    .lista_header{
-        gap:1rem;
-        font-size: 0.7rem;
-    }
+ 
     .banner {
         height: 120px;
     }
@@ -778,9 +617,6 @@ input[type="file"] {
         gap: 0.3em;
     }
 }
-
-
-
 
 @media (max-width: 290px){
     .lista-filtros{
@@ -798,13 +634,6 @@ input[type="file"] {
         font-size: 0.8rem;
     }
 
-    label{
-        font-size: 0.7rem;
-    }
-    .form_placeholder{
-        font-size: 0.6rem;
-    }
-
     .lista-item-pet{
         font-size: 0.8rem;
         
@@ -813,8 +642,6 @@ input[type="file"] {
     .banner {
         height: 100px;
     }
-    .lista_header{
-        font-size: 0.6rem;
-    }
+
 
 }

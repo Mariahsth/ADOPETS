@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Animais | Adopets</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header>
+    <div id="header-container"></div>
+  </header>
+
+  <main class="container-principal">
+    <section class="container-principal" id="cadastro">
+          <section id="form-container">
+            <h2><img src="./assets/note-pencil.svg" class="icones_conteudo"/>  Cadastro de animal</h2>
+
+              <form id="pet-form" enctype="multipart/form-data">
+                <input type="hidden" id="pet-id" />
+                <label 
+                  for="pet-nome">
+                    Nome do pet:
+                  </label>
+                <input 
+                  type="text" 
+                  name="nome"
+                  id="pet-nome" 
+                  class="form_placeholder"
+                  placeholder="Insira o nome do pet" 
+                  required />
+
+                <label 
+                for="pet-especie">
+                  Espécie do pet:
+                </label>
+                <select 
+                  name="especie"
+                  id="pet-especie" 
+                  class="form_placeholder campo_select" 
+                  required>
+                  <option  value="" disabled selected>Escolha a espécie do pet</option>
+                  <option  value="Cachorro">Cachorro</option>
+                  <option  value="Gato">Gato</option>
+                  <option  value="Outro">Outro</option>
+                </select>
+
+                  <label 
+                  for="pet-raca">
+                    Raça do pet:
+                  </label>
+                <input 
+                  name="raca"
+                  type="text" 
+                  id="pet-raca" 
+                  class="form_placeholder"
+                  placeholder="Insira a raça do pet" 
+                  required />
+
+                  <label 
+                  for="pet-sexo">
+                    Sexo do pet:
+                  </label>
+                  <select 
+                    id="pet-sexo" 
+                    class="form_placeholder campo_select" 
+                    name="sexo"
+                    required>
+                    <option value="" disabled selected>Escolha o sexo do pet</option>
+                    <option value="Macho">Macho</option>
+                    <option value="Fêmea">Fêmea</option>
+                  </select>
+
+                  <label 
+                  for="pet-porte">
+                    Porte do pet:
+                  </label>
+                  <select 
+                    id="pet-porte" 
+                    name="porte"
+                    class="form_placeholder campo_select" 
+                    required>
+                    <option value="" disabled selected>Escolha o porte do pet</option>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                  </select>
+
+
+                  <label 
+                  for="pet-idade">
+                    Idade do pet:
+                  </label>
+                  <select 
+                    id="pet-idade" 
+                    name="idade"
+                    class="form_placeholder campo_select" 
+                    required>
+                    <option value="" disabled selected>Escolha a idade aproximada do pet em anos</option>
+                    <option value="0"><0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">>20</option>
+                  </select>
+
+                  <label 
+                  for="pet-vacina">
+                    O pet é vacinado?
+                  </label>
+                  <select 
+                    id="pet-vacina" 
+                    name="vacinado"
+                    class="form_placeholder campo_select" 
+                    required>
+                    <option value="" disabled selected>O pet é vacinado?</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+
+                  <label 
+                  for="pet-castracao">
+                    O pet é castrado(a)?
+                  </label>
+                  <select 
+                    id="pet-castracao" 
+                    name="castrado"
+                    class="form_placeholder campo_select" 
+                    required>
+                    <option value="" disabled selected>O pet é castrado(a)?</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+
+                  <label 
+                  for="pet-vermifugo">
+                    O pet é vermifugado(a)?
+                  </label>
+                  <select 
+                    id="pet-vermifugo" 
+                    name="vermifugado"
+                    class="form_placeholder campo_select" 
+                    required>
+                    <option value="" disabled selected>O pet é vermifugado(a)?</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+
+                  <label 
+                  for="pet-comentarios">
+                    Comentários sobre o pet:
+                  </label>
+                <input 
+                  type="text" 
+                  id="pet-comentarios" 
+                  name="comentarios"
+                  class="form_placeholder"
+                  placeholder="Comentários sobre o pet" 
+                  required />
+
+                <label for="imagem">Imagem:</label>
+                <input 
+                  type="file" 
+                  id="imagem" 
+                  class="form_placeholder campo_carregar_imagem"
+                  name="imagem" 
+                  placeholder="Imagem do pet"
+                  accept="image/*" 
+                  required
+                  ><br>
+
+                <div class="form-botoes">
+                  <button 
+                    type="submit" 
+                    id="botao-salvar">
+                    Adicionar
+                  </button>
+                  <button 
+                    type="button" 
+                    id="botao-cancelar">
+                    Cancelar
+                  </button>
+                </div>
+              </form>
+
+
+      </section>
+
+      <section class="container-lista">
+        <h2 id="pets"><img src="./assets/paw-print.svg" class="icones_conteudo"/>Pets disponíveis para adoção</h2>
+        <h3>Filtrar por:</h3>
+        <div class="lista-filtros">
+          <!-- <button class="lista-filtros-item">Espécie</button></li>
+          <button class="lista-filtros-item">Idade</button></li>
+          <button class="lista-filtros-item">Sexo</button></li>
+          <button class="lista-filtros-item">Porte</button></li> -->
+          <button id="filtro-favoritos" class="lista-filtros-item">Favoritos</button></li>
+        </div>
+
+      <ul id="lista-pets"></ul>
+      </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Adopets | contato@adopets.com</p>
+  </footer>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        const path = window.location.pathname;
+        const linkInicio = document.getElementById("link-inicio");
+        const logoLink = document.getElementById("logo-link");
+  
+        if (path.includes("index.html") || path === "/" || path === "/index") {
+          linkInicio.href = "#home";
+          logoLink.href = "#home";
+        } else {
+          linkInicio.href = "index.html";
+          logoLink.href = "index.html";
+        }
+      });
+  </script>
+
+  <script type="module" src="./JS/api.js"></script>
+  <script type="module" src="./JS/ui.js"></script>
+  <script type="module" src="./JS/main.js"></script>
+</body>
+</html>

@@ -13,267 +13,83 @@
     <title>ADOPET</title>
 </head>
 <body>
-  <header>
-    <div id="home" class="banner_container">
-      <nav class="nav_header_container">
-        <div class="logo_header">
-          <a href="#home">
-            <img src="./assets/paw-print.svg" alt="logo">
-            Adopets
-          </a>
-        </div>
-      
-        <ul class="lista_header">
-          <!-- ideias: Quem somos | Feiras de adoção | Blog |  FAQ | Parcerias-->
-          <li><a href="#home" class="nav_header"><img src="./assets/house.svg" />Início</a></li>
-          <li><a href="#cadastro" class="nav_header"><img src="./assets/note-pencil.svg" />Cadastro de animais</a></li>
-          <li><a href="#pets" class="nav_header"><img src="./assets/check.png" class="icone_header" />Pets disponíveis</a></li>
-        </ul>
-      </nav>
-      
-      <div  class="banner">
-        <div class="banner-bg"></div>
-        <h1 ><img src="./assets/paws.png" class="icone-patas">Adopets</h1>
-        <p class="slogan">Projeto 4 Patas</p>
-      </div>
-    </div>
-  </header>
+  <div id="header-container"></div>
   <main>
 
-        <section class="passo-a-passo">
+    <div  class="banner">
+      <div class="banner-bg"></div>
+      <h1 ><img src="./assets/paws.png" class="icone-patas">Adopets</h1>
+      <p class="slogan">Projeto 4 Patas</p>
+    </div>
+    <section class="passo-a-passo">
           <h2 class="titulo_passo-a-passo">Adote, Mude uma Vida </h2>
           <div class="div_icone-hand-heart">
             <img src="./assets/hand-heart.svg"  class="icone-hand-heart"/>
-
+      
           </div>
-          
-          <h3 class="titulo_texto">Como Funciona a Adoção?</h3>
           <div class="container_texto">
-            <p class="fraseDeEfeito">
-              1 - Escolha seu novo amigo: Navegue pelos perfis dos animais disponíveis. </p>
-              <p class="fraseDeEfeito">2 - Entre em contato: Aqui iremos te enviar um formulário para preenchimento. </p>
-              <p class="fraseDeEfeito">3 - Preencha o formulário: Queremos garantir que cada adoção seja consciente e responsável.</p>
-              <p class="fraseDeEfeito">4 - Visita e entrevista: Nossa equipe entrará em contato para conhecer você e sua rotina.</p>
-              <p class="fraseDeEfeito">5 - Adoção com responsabilidade: Após a aprovação, você leva pra casa um novo membro da família.</p>
+              <div class="container_item_passo_a_passo">
+                <div class="container_icone_passo_a_passo">
+                  <img class="icone_passo_a_passo" src="/public/assets/magnifying-glass.svg"/>
+
+                </div>
+                <p class="fraseDeEfeito"> Escolha seu novo amigo: Navegue pelos perfis dos animais disponíveis. </p>
+              </div>
+              <img class="icone_passo_a_passo" src="/public/assets/caret-double-right.svg"/>
+
+              <div class="container_item_passo_a_passo">
+                <div class="container_icone_passo_a_passo">
+                  <img class="icone_passo_a_passo" src="/public/assets/envelope.svg"/>
+
+                </div>
+                <p class="fraseDeEfeito">Entre em contato: Aqui iremos te enviar um formulário para preenchimento. </p>
+              </div>
+              <img class="icone_passo_a_passo" src="/public/assets/caret-double-right.svg"/>
+
+              <div class="container_item_passo_a_passo">
+                <div class="container_icone_passo_a_passo">
+                  <img class="icone_passo_a_passo" src="/public/assets/file-text.svg"/>
+
+                </div>
+                <p class="fraseDeEfeito">Preencha o formulário: Queremos garantir que cada adoção seja consciente e responsável.</p>
+              </div>
+              <img class="icone_passo_a_passo" src="/public/assets/caret-double-right.svg"/>
+
+              <div class="container_item_passo_a_passo">
+                <div class="container_icone_passo_a_passo">
+                  <img class="icone_passo_a_passo" src="/public/assets/users.svg"/>
+
+                </div>
+                <p class="fraseDeEfeito">Visita e entrevista: Nossa equipe entrará em contato para conhecer você e sua rotina.</p>
+              </div>
+              <img class="icone_passo_a_passo" src="/public/assets/caret-double-right.svg"/>
+
+              <div class="container_item_passo_a_passo">
+                <div class="container_icone_passo_a_passo">
+                  <img class="icone_passo_a_passo" src="/public/assets/house-line.svg"/>
+
+                </div>
+                <p class="fraseDeEfeito">Adoção com responsabilidade: Após a aprovação, você leva pra casa um novo membro da família.</p>
+              </div>
           </div>
-          <h3 class="titulo_texto">Quem Pode Adotar?</h3>
-          <div class="container_texto">
-            <p class="fraseDeEfeito">Maiores de 18 anos com documento de identidade</p>
-            <p class="fraseDeEfeito">Pessoas que moram em residências seguras e têm tempo e recursos para cuidar de um pet</p>
-            <p class="fraseDeEfeito">Quem entende que adotar é um compromisso para a vida toda</p>
-
+          <div class="container_quem_pode_adotar">
+              <h3 class="titulo_texto">Quem Pode Adotar?</h3>
+              <ol class="container_texto lista">
+                <li class="fraseDeEfeito">Maiores de 18 anos com documento de identidade</li>
+                <li class="fraseDeEfeito">Pessoas que moram em residências seguras e têm tempo e recursos para cuidar de um pet</li>
+                <li class="fraseDeEfeito">Quem entende que adotar é um compromisso para a vida toda</li>
+    
+              </ol>
           </div>
+          <p class="fraseDeEfeito">Adotar é mais do que um gesto de amor — é transformar vidas, inclusive a sua.</p>
+          <p class="fraseDeEfeito frase_contato">contato@adopets.com</p>
         </section>
-        <p class="fraseDeEfeito">Adotar é mais do que um gesto de amor — é transformar vidas, inclusive a sua.</p>
-        <p class="fraseDeEfeito frase_contato">contato@adopets.com</p>
-        <hr class="linha_divisoria">
-
-        <section class="container-principal" id="cadastro">
-          <button id="toggleFormBtn">^ Ocultar formulário</button>
-            <section id="form-container">
-              <h2><img src="./assets/note-pencil.svg" class="icones_conteudo"/>  Cadastro de animal</h2>
-
-                <form id="pet-form" enctype="multipart/form-data">
-                  <input type="hidden" id="pet-id" />
-                  <label 
-                    for="pet-nome">
-                      Nome do pet:
-                    </label>
-                  <input 
-                    type="text" 
-                    name="nome"
-                    id="pet-nome" 
-                    class="form_placeholder"
-                    placeholder="Insira o nome do pet" 
-                    required />
-
-                  <label 
-                  for="pet-especie">
-                    Espécie do pet:
-                  </label>
-                  <select 
-                    name="especie"
-                    id="pet-especie" 
-                    class="form_placeholder campo_select" 
-                    required>
-                    <option  value="" disabled selected>Escolha a espécie do pet</option>
-                    <option  value="Cachorro">Cachorro</option>
-                    <option  value="Gato">Gato</option>
-                    <option  value="Outro">Outro</option>
-                  </select>
-
-                    <label 
-                    for="pet-raca">
-                      Raça do pet:
-                    </label>
-                  <input 
-                    name="raca"
-                    type="text" 
-                    id="pet-raca" 
-                    class="form_placeholder"
-                    placeholder="Insira a raça do pet" 
-                    required />
-
-                    <label 
-                    for="pet-sexo">
-                      Sexo do pet:
-                    </label>
-                    <select 
-                      id="pet-sexo" 
-                      class="form_placeholder campo_select" 
-                      name="sexo"
-                      required>
-                      <option value="" disabled selected>Escolha o sexo do pet</option>
-                      <option value="Macho">Macho</option>
-                      <option value="Fêmea">Fêmea</option>
-                    </select>
-
-                    <label 
-                    for="pet-porte">
-                      Porte do pet:
-                    </label>
-                    <select 
-                      id="pet-porte" 
-                      name="porte"
-                      class="form_placeholder campo_select" 
-                      required>
-                      <option value="" disabled selected>Escolha o porte do pet</option>
-                      <option value="Pequeno">Pequeno</option>
-                      <option value="Médio">Médio</option>
-                      <option value="Grande">Grande</option>
-                    </select>
 
 
-                    <label 
-                    for="pet-idade">
-                      Idade do pet:
-                    </label>
-                    <select 
-                      id="pet-idade" 
-                      name="idade"
-                      class="form_placeholder campo_select" 
-                      required>
-                      <option value="" disabled selected>Escolha a idade aproximada do pet em anos</option>
-                      <option value="0"><0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                      <option value="13">13</option>
-                      <option value="14">14</option>
-                      <option value="15">15</option>
-                      <option value="16">16</option>
-                      <option value="17">17</option>
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">>20</option>
-                    </select>
 
-                    <label 
-                    for="pet-vacina">
-                      O pet é vacinado?
-                    </label>
-                    <select 
-                      id="pet-vacina" 
-                      name="vacinado"
-                      class="form_placeholder campo_select" 
-                      required>
-                      <option value="" disabled selected>O pet é vacinado?</option>
-                      <option value="Sim">Sim</option>
-                      <option value="Não">Não</option>
-                    </select>
-
-                    <label 
-                    for="pet-castracao">
-                      O pet é castrado(a)?
-                    </label>
-                    <select 
-                      id="pet-castracao" 
-                      name="castrado"
-                      class="form_placeholder campo_select" 
-                      required>
-                      <option value="" disabled selected>O pet é castrado(a)?</option>
-                      <option value="Sim">Sim</option>
-                      <option value="Não">Não</option>
-                    </select>
-
-                    <label 
-                    for="pet-vermifugo">
-                      O pet é vermifugado(a)?
-                    </label>
-                    <select 
-                      id="pet-vermifugo" 
-                      name="vermifugado"
-                      class="form_placeholder campo_select" 
-                      required>
-                      <option value="" disabled selected>O pet é vermifugado(a)?</option>
-                      <option value="Sim">Sim</option>
-                      <option value="Não">Não</option>
-                    </select>
-
-                    <label 
-                    for="pet-comentarios">
-                      Comentários sobre o pet:
-                    </label>
-                  <input 
-                    type="text" 
-                    id="pet-comentarios" 
-                    name="comentarios"
-                    class="form_placeholder"
-                    placeholder="Comentários sobre o pet" 
-                    required />
-
-                  <label for="imagem">Imagem:</label>
-                  <input 
-                    type="file" 
-                    id="imagem" 
-                    class="form_placeholder campo_carregar_imagem"
-                    name="imagem" 
-                    placeholder="Imagem do pet"
-                    accept="image/*" 
-                    required
-                    ><br>
-
-                  <div class="form-botoes">
-                    <button 
-                      type="submit" 
-                      id="botao-salvar">
-                      Adicionar
-                    </button>
-                    <button 
-                      type="button" 
-                      id="botao-cancelar">
-                      Cancelar
-                    </button>
-                  </div>
-                </form>
-
-
-        </section>
-        <hr class="linha_divisoria">
         
 
-        <section class="container-lista">
-          <h2 id="pets"><img src="./assets/paw-print.svg" class="icones_conteudo"/>Pets disponíveis para adoção</h2>
-          <h3>Filtrar por:</h3>
-          <div class="lista-filtros">
-            <!-- <button class="lista-filtros-item">Espécie</button></li>
-            <button class="lista-filtros-item">Idade</button></li>
-            <button class="lista-filtros-item">Sexo</button></li>
-            <button class="lista-filtros-item">Porte</button></li> -->
-            <button id="filtro-favoritos" class="lista-filtros-item">Favoritos</button></li>
-          </div>
-
-        <ul id="lista-pets"></ul>
-        </section>
+        
     </main>
     <script type="module" src="./JS/api.js"></script>
     <script type="module" src="./JS/ui.js"></script>
@@ -284,6 +100,13 @@
       <p><img src="./assets/envelope.svg" class="icone_email"/>contato@adopets.com</p>
 
     </footer>
+    <script>
+      fetch('header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header-container').innerHTML = data;
+        });
+    </script>
 </body>
 
 </html>

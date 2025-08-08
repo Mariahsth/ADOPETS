@@ -1,15 +1,15 @@
 
 import { atualizaPet, atualizarFavorito, cadastrarPet, excluirPet, listarPets } from "./api.js";
-import { alteraVisibilidadeForm } from "./main.js";
 
 
 export const renderPetsList = (pets) => {
   const petsListElement = document.getElementById('lista-pets');
-  petsListElement.innerHTML = ''; // Limpa a lista antes de adicionar
+  if (!petsListElement) return;
+  petsListElement.innerHTML = '';
   
   pets.forEach(pet => {
     const petElement = document.createElement('li');
-    const petId = pet._id ? pet._id.toString() : '';  // Garantir que id esteja disponível e seja string
+    const petId = pet._id ? pet._id.toString() : '';  
     petElement.setAttribute("id", petId);
     petElement.classList.add('lista-item-pet');
 
@@ -108,11 +108,6 @@ export function limparFormulario() {
 
 export function editarPets(pet){
  
-  const sectionForm = document.getElementById("form-container");
-  const visivel = sectionForm.style.display === "flex";
-  if (sectionForm.style.display = !visivel) {
-    alteraVisibilidadeForm()
-  }
 
   document.getElementById('pet-nome').value = pet.nome;
   document.getElementById('pet-especie').value = pet.especie;

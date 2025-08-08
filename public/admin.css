@@ -1,0 +1,99 @@
+.container-principal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+#form-container{
+    padding: 1% 0;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+
+}
+
+#pet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    width: 60%;
+
+}
+.form_placeholder {
+    border-radius: 8px;
+    padding: 0.5em;
+    border: transparent;
+    font-family: var(--font-primary);
+    color: var(--quaternary-color);
+    background-color: white;
+    font-weight: 500;
+
+}
+label{
+    color: var(--terciary-color);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    
+}
+.form_placeholder::placeholder{
+    font-family: var(--font-primary);
+    color: var(--quaternary-color);
+    font-weight: 500;
+    width: 100%;
+}
+
+
+input[type="file"] {
+    background-color: white;
+    
+  }
+
+@media (max-width: 550px){
+
+    label{
+        font-size: 0.9rem;
+    }
+    .form_placeholder{
+        font-size: 0.8rem;
+    }
+
+
+}
+
+@media (max-width: 290px){
+
+    label{
+        font-size: 0.7rem;
+    }
+    .form_placeholder{
+        font-size: 0.6rem;
+    }
+
+}
+@media (max-width: 700px){
+
+    #pet-form {
+        width: 95%;
+    }
+
+}
+@media (max-width: 950px){
+
+
+    #pet-form {
+        width: 30rem;
+    }
+    #form-container{
+        width: 100%;
+    }
+
+
+}

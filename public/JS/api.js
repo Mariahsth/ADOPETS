@@ -1,4 +1,3 @@
-// api.js
 
 const API_URL = "https://adopets-ndrs.onrender.com/pets"; 
 
