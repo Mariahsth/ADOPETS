@@ -221,7 +221,9 @@
   <footer >
     <div id="rodape-container"></div>
   </footer>
-  <script>
+  <script type="module">
+    import { initMenuHamburguer } from './JS/header.js';
+
     fetch('header.html')
       .then(res => res.text())
       .then(data => {
@@ -237,6 +239,7 @@
           linkInicio.href = "index.html";
           logoLink.href = "index.html";
         }
+        initMenuHamburguer();
       });
     fetch('footer.html')
       .then(res => res.text())
