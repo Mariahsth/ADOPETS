@@ -20,14 +20,25 @@ export function getAssetBasePath() {
   }
   
   export function loadHeaderFooter(headerPath, footerPath, headerContainerId, footerContainerId) {
+    // Carregar o header dinamicamente
     fetch(headerPath)
       .then(res => res.text())
       .then((data) => {
-        const basePath = getAssetBasePath();
-        const updatedHeader = data.replace(/{{path_to_assets}}/g, basePath); 
+        const baseAssetPath = getAssetBasePath();
+        const updatedHeader = data.replace(/{{path_to_assets}}/g, baseAssetPath); 
         document.getElementById(headerContainerId).innerHTML = updatedHeader;
   
+        // Após o header ser carregado, ajustar o link do "Painel Admin"
         const path = window.location.pathname;
+        const linkAdmin = document.getElementById('link-admin');
+        const basePath = getBasePath(); // Pega o basePath correto para cada ambiente
+  
+        // Ajusta o href do "Painel Admin" baseado no ambiente
+        if (linkAdmin) {
+          linkAdmin.href = basePath + "/pages/admin/admin.html";
+        }
+  
+        // Ajusta os links do logo e "Início"
         const linkInicio = document.getElementById("link-inicio");
         const logoLink = document.getElementById("logo-link");
   
@@ -39,9 +50,17 @@ export function getAssetBasePath() {
           logoLink.href = "../../index.html";
         }
   
+        // Inicia o menu hambúrguer
         initMenuHamburguer();
+  
+        // Impede redirecionamento para a mesma página
+        const menuLinks = document.querySelectorAll('.nav_header');
+        menuLinks.forEach(link => {
+          preventRedirectionToSamePage(link);
+        });
       });
   
+    // Carregar o footer dinamicamente
     fetch(footerPath)
       .then(res => res.text())
       .then((data) => {
@@ -49,10 +68,7 @@ export function getAssetBasePath() {
         const updatedFooter = data.replace(/{{path_to_assets}}/g, basePath); 
         document.getElementById(footerContainerId).innerHTML = updatedFooter;
       });
-
-
   }
-  
   export function preventRedirectionToSamePage(linkElement) {
     linkElement.addEventListener('click', function(event) {
       const currentPath = window.location.pathname.split("/").slice(-1)[0].split("#")[0];
