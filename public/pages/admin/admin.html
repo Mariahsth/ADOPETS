@@ -220,45 +220,9 @@
     <div id="rodape-container"></div>
   </footer>
   <script type="module">
-    import { initMenuHamburguer } from '../../JS/header.js';
+    import { loadHeaderFooter } from '../../JS/utils.js';
+    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
 
-    function getAssetBasePath() {
-        const path = window.location.pathname; 
-        if (path.includes('pages')) {
-          return "../../assets"; 
-        } else {
-          return "./assets"; 
-        }
-      }
-
-    fetch('../../components/header.html')
-      .then(res => res.text())
-      .then((data) => {
-      const basePath = getAssetBasePath();
-      const updatedHeader = data.replace(/{{path_to_assets}}/g, basePath); 
-      document.getElementById("header-container").innerHTML = updatedHeader;
-      const path = window.location.pathname;
-
-      const linkInicio = document.getElementById("link-inicio");
-      const logoLink = document.getElementById("logo-link");
-
-      if (path.includes("index.html") || path === "/" || path.endsWith("/index")) {
-        linkInicio.href = "#home";
-        logoLink.href = "#home";
-      } else {
-        linkInicio.href = "../../index.html";
-        logoLink.href = "../../index.html";
-      }
-
-      initMenuHamburguer(); 
-    });
-      fetch("../../components/footer.html")
-              .then((res) => res.text())
-              .then((data) => {
-                const basePath = getAssetBasePath();
-                const updatedFooter = data.replace(/{{path_to_assets}}/g, basePath); 
-                document.getElementById("rodape-container").innerHTML = updatedFooter;
-              });
   </script>
 
   <script type="module" src="../../JS/api.js"></script>

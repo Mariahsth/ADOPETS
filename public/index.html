@@ -156,33 +156,10 @@
     <script type="module" src="./JS/ui.js"></script>
     <script type="module" src="./JS/main.js"></script>
     <script type="module">
-      import { initMenuHamburguer } from './JS/header.js';
-    
-      function getAssetBasePath() {
-        const path = window.location.pathname; 
-        if (path.includes('pages')) {
-          return "../../assets"; 
-        } else {
-          return "./assets"; 
-        }
-      }
-    
-      fetch("./components/header.html")
-        .then((res) => res.text())
-        .then((data) => {
-      const basePath = getAssetBasePath();
-      const updatedHeader = data.replace(/{{path_to_assets}}/g, basePath); 
-      document.getElementById("header-container").innerHTML = updatedHeader;
-      initMenuHamburguer(); 
-    });
-    
-      fetch("./components/footer.html")
-        .then((res) => res.text())
-        .then((data) => {
-          const basePath = getAssetBasePath();
-          const updatedFooter = data.replace(/{{path_to_assets}}/g, basePath); 
-          document.getElementById("rodape-container").innerHTML = updatedFooter;
-        });
+      import { loadHeaderFooter } from './JS/utils.js';
+  
+      loadHeaderFooter("./components/header.html", "./components/footer.html", "header-container", "rodape-container");
+  
     </script>
   </body>
 </html>
