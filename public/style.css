@@ -74,14 +74,6 @@ main {
     z-index: -1;
   }
 
-.banner_container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
 h1, h2{
     font-family: var(--font-primary);
     font-weight: 300;
@@ -181,15 +173,6 @@ h1{
 
 }
 
-.div_icone-hand-heart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 2rem;
-}
-.icone-hand-heart{
-    width: 3rem;
-}
 .fraseDeEfeito{
     font-size: 1rem;
     color: var(--black-smooth-color);
@@ -357,10 +340,10 @@ h3{
 }
 
 .titulo_passo-a-passo{
-    padding: 0;
+    padding-bottom: 1rem;
     font-size: 2.2rem;
-    color: var(--black-color);
-    font-weight: 500;
+    color: var(--black-smooth-color);
+    font-weight: 700;
 }
 
 .linha {
@@ -507,10 +490,6 @@ h3{
         font-size: 1.5rem;
     }
 
-    .icone-hand-heart{
-        width: 2rem;
-    }
-
     .container_quem_pode_adotar{
         flex-direction: column;
         padding: 1.5rem 1.5rem 0rem;
@@ -521,9 +500,15 @@ h3{
 
 @media (max-width: 480px){
  
+    h1{
+        font-size: 2rem;
+    }
 
+    .slogan{
+        font-size: 16px;
+    }
     .titulo_passo-a-passo{
-        font-size: 1.5rem;
+        padding-bottom: 2rem;
     }
     .banner {
         height: 150px;
