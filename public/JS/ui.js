@@ -48,17 +48,17 @@ export const renderPetsList = (pets) => {
       </div>
       <div class="div-botoes">
         <button class="botao_excluir">
-          <img src="./assets/icone-excluir.png" class="botao_icone">
+          <img src="../../assets/icone-excluir.png" class="botao_icone">
         </button>
           <p class="nome_botao"> Excluir </p>
         </button>
         <button class="botao_editar" data-id="${petId}" >
-          <img src="./assets/icone-editar.png" class=botao_icone>
+          <img src="../../assets/icone-editar.png" class=botao_icone>
         </button>
           <p class="nome_botao"> Editar </p>
         </button>
         <button class="botao-favoritar">
-          <img src=${pet.favorito? "./assets/favorite.png":"./assets/favorite_outline.png"} class="botao_icone">
+          <img src=${pet.favorito? "../../assets/favorite.png":"../../assets/favorite_outline.png"} class="botao_icone">
         </button>
           <p class="nome_botao"> Favoritar </p>
         </button>

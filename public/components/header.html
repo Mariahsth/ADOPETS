@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADOPET</title>
+</head>
+<body>
+  <header id="header-container">
+    <div id="home" class="banner_container">
+      <nav class="nav_header_container">
+        <div class="logo_header">
+          <a id="logo-link" href="#home">
+            <img class="logo_header_icone" src="{{path_to_assets}}/paw-print.svg" alt="logo">
+            Adopets
+          </a>
+        </div >
+
+        <div class="menu-container">
+          <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <img src="{{path_to_assets}}/menu.svg" alt="Menu">
+          </button>
+          <ul class="lista_header">
+            
+            <li><a id="link-inicio" href="#home" class="nav_header"><img src="{{path_to_assets}}/house.svg" />Início</a></li>
+            <li><a href="#home" class="nav_header"><img src="{{path_to_assets}}/users-three.svg" />Quem somos</a></li>
+            <li><a href="#home" class="nav_header"><img src="{{path_to_assets}}/map-pin.svg" />Feiras de adoção</a></li>
+            <li><a href="#home" class="nav_header"><img src="{{path_to_assets}}/handshake.svg" />Parcerias</a></li>
+            <li><a href="#pets" class="nav_header"><img src="{{path_to_assets}}/check.png" class="icone_header" />Pets disponíveis</a></li>
+            <li><a href="./pages/admin/admin.html" class="nav_header"><img src="{{path_to_assets}}/lock-key.svg" />Painel admin</a></li>
+          </ul>
+
+        </div>
+      </nav>
+      
+
+    </div>
+  </header>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.getElementById('menu-toggle');
+      const listaHeader = document.querySelector('.lista_header');
+  
+      menuToggle.addEventListener('click', () => {
+        console.log("clique")
+        listaHeader.classList.toggle('ativo');
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>

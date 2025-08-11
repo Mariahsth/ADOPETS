@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Animais | Adopets</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../components/header.css" />
+  <link rel="stylesheet" href="../../components/footer.css" />
+  <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
@@ -15,7 +17,7 @@
   <main class="container-principal">
     <section class="container-principal" id="cadastro">
           <section id="form-container">
-            <h2><img src="./assets/note-pencil.svg" class="icones_conteudo"/>  Cadastro de animal</h2>
+            <h2><img src="../../assets/note-pencil.svg" class="icones_conteudo"/>  Cadastro de animal</h2>
 
               <form id="pet-form" enctype="multipart/form-data">
                 <input type="hidden" id="pet-id" />
@@ -204,13 +206,9 @@
       </section>
 
       <section class="container-lista">
-        <h2 id="pets"><img src="./assets/paw-print.svg" class="icones_conteudo"/>Pets disponíveis para adoção</h2>
+        <h2 id="pets"><img src="../../assets/paw-print.svg" class="icones_conteudo"/>Pets disponíveis para adoção</h2>
         <h3>Filtrar por:</h3>
         <div class="lista-filtros">
-          <!-- <button class="lista-filtros-item">Espécie</button></li>
-          <button class="lista-filtros-item">Idade</button></li>
-          <button class="lista-filtros-item">Sexo</button></li>
-          <button class="lista-filtros-item">Porte</button></li> -->
           <button id="filtro-favoritos" class="lista-filtros-item">Favoritos</button></li>
         </div>
 
@@ -222,34 +220,49 @@
     <div id="rodape-container"></div>
   </footer>
   <script type="module">
-    import { initMenuHamburguer } from './JS/header.js';
+    import { initMenuHamburguer } from '../../JS/header.js';
 
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-        const path = window.location.pathname;
-        const linkInicio = document.getElementById("link-inicio");
-        const logoLink = document.getElementById("logo-link");
-  
-        if (path.includes("index.html") || path === "/" || path === "/index") {
-          linkInicio.href = "#home";
-          logoLink.href = "#home";
+    function getAssetBasePath() {
+        const path = window.location.pathname; 
+        if (path.includes('pages')) {
+          return "../../assets"; 
         } else {
-          linkInicio.href = "index.html";
-          logoLink.href = "index.html";
+          return "./assets"; 
         }
-        initMenuHamburguer();
-      });
-    fetch('footer.html')
+      }
+
+    fetch('../../components/header.html')
       .then(res => res.text())
-      .then(data => {
-        document.getElementById('rodape-container').innerHTML = data;
-      });
+      .then((data) => {
+      const basePath = getAssetBasePath();
+      const updatedHeader = data.replace(/{{path_to_assets}}/g, basePath); 
+      document.getElementById("header-container").innerHTML = updatedHeader;
+      const path = window.location.pathname;
+
+      const linkInicio = document.getElementById("link-inicio");
+      const logoLink = document.getElementById("logo-link");
+
+      if (path.includes("index.html") || path === "/" || path.endsWith("/index")) {
+        linkInicio.href = "#home";
+        logoLink.href = "#home";
+      } else {
+        linkInicio.href = "../../index.html";
+        logoLink.href = "../../index.html";
+      }
+
+      initMenuHamburguer(); 
+    });
+      fetch("../../components/footer.html")
+              .then((res) => res.text())
+              .then((data) => {
+                const basePath = getAssetBasePath();
+                const updatedFooter = data.replace(/{{path_to_assets}}/g, basePath); 
+                document.getElementById("rodape-container").innerHTML = updatedFooter;
+              });
   </script>
 
-  <script type="module" src="./JS/api.js"></script>
-  <script type="module" src="./JS/ui.js"></script>
-  <script type="module" src="./JS/main.js"></script>
+  <script type="module" src="../../JS/api.js"></script>
+  <script type="module" src="../../JS/ui.js"></script>
+  <script type="module" src="../../JS/main.js"></script>
 </body>
 </html>

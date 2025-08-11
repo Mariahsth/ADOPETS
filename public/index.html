@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./components/header.css" />
+    <link rel="stylesheet" href="./components/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -154,18 +156,32 @@
     <script type="module" src="./JS/ui.js"></script>
     <script type="module" src="./JS/main.js"></script>
     <script type="module">
-       import { initMenuHamburguer } from './JS/header.js';
-      fetch("header.html")
+      import { initMenuHamburguer } from './JS/header.js';
+    
+      function getAssetBasePath() {
+        const path = window.location.pathname; 
+        if (path.includes('pages')) {
+          return "../../assets"; 
+        } else {
+          return "./assets"; 
+        }
+      }
+    
+      fetch("./components/header.html")
         .then((res) => res.text())
         .then((data) => {
-          document.getElementById("header-container").innerHTML = data;
-          initMenuHamburguer();
-        });
-
-      fetch("footer.html")
+      const basePath = getAssetBasePath();
+      const updatedHeader = data.replace(/{{path_to_assets}}/g, basePath); 
+      document.getElementById("header-container").innerHTML = updatedHeader;
+      initMenuHamburguer(); 
+    });
+    
+      fetch("./components/footer.html")
         .then((res) => res.text())
         .then((data) => {
-          document.getElementById("rodape-container").innerHTML = data;
+          const basePath = getAssetBasePath();
+          const updatedFooter = data.replace(/{{path_to_assets}}/g, basePath); 
+          document.getElementById("rodape-container").innerHTML = updatedFooter;
         });
     </script>
   </body>
