@@ -95,6 +95,20 @@ h1{
     text-align: start;
 }
 
+.passo-a-passo_descrição h3{
+    color: var(--black-smooth-color);
+    font-weight: bold;
+    font-family: var(--font-primary);
+}
+.passo-a-passo_descrição p{
+    color: var(--black-smooth-color);
+    font-family: var(--font-primary);
+    font-size: 18px;
+}
+.passo-a-passo_descrição{
+    margin: 2rem 0;
+}
+
 .container_item_passo_a_passo{
     display: flex;
     flex-direction: column;
@@ -103,7 +117,7 @@ h1{
 }
 
 .container_icone_passo_a_passo{
-    background-color: var(--secundary-color);
+    background-color: var(--quaternary-color);
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -163,12 +177,9 @@ h1{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 16px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     padding: 2em;
-    background-color: var(--primary-color);
-    margin: 2rem;
-    width: 90%;
+    margin: 1rem 0rem;
+    width: 95%;
     box-sizing: border-box;
 
 }
@@ -339,13 +350,6 @@ h3{
     font-family: var(--font-primary);
 }
 
-.titulo_passo-a-passo{
-    padding-bottom: 1rem;
-    font-size: 2.2rem;
-    color: var(--black-smooth-color);
-    font-weight: 700;
-}
-
 .linha {
     display: flex;
     justify-content: center;
@@ -432,9 +436,7 @@ h3{
         gap: 1em;
 
     }
-    h3{
-        font-size: 1rem;
-    }
+
     .container_quem_pode_adotar{
         margin-bottom: 5rem;
     }
@@ -448,6 +450,17 @@ h3{
 @media (max-width: 700px){
     h2{
         font-size: 2rem;
+    }
+
+    .passo-a-passo_descrição h3{
+        font-size: 18px;
+    }
+    .passo-a-passo_descrição p{
+        font-size: 12px;
+    }
+    .passo-a-passo_descrição{
+        margin: 0;
+        margin-bottom: 2rem;
     }
 
     .banner {
@@ -488,9 +501,6 @@ h3{
         font-size: 0.8rem;
     }
 
-    .titulo_passo-a-passo{
-        font-size: 1.5rem;
-    }
 
     .container_quem_pode_adotar{
         flex-direction: column;
@@ -502,6 +512,9 @@ h3{
 
 @media (max-width: 480px){
  
+    .passo-a-passo{
+        padding: 0em;
+    }
     h1{
         font-size: 2rem;
     }
@@ -509,14 +522,22 @@ h3{
     .slogan{
         font-size: 16px;
     }
-    .titulo_passo-a-passo{
-        padding-bottom: 2rem;
-    }
+
     .banner {
         height: 150px;
         margin-top: 40px;
     }
 
+    .passo-a-passo_descrição h3{
+        font-size: 14px;
+        margin-top: 0.5rem;
+
+    }
+    .passo-a-passo_descrição p{
+        font-size: 10px;
+        margin-top: 0.5rem;
+
+    }
 
     .fraseDeEfeito{
         padding-bottom: 1.5rem;
