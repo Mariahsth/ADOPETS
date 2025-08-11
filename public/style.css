@@ -446,7 +446,9 @@ h3{
 }
 
 @media (max-width: 700px){
-
+    h2{
+        font-size: 2rem;
+    }
 
     .banner {
         height: 200px;

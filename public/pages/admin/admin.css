@@ -61,11 +61,12 @@ input[type="file"] {
     #form-container{
         width: 100%;
     }
+    h2>.icones_conteudo{
+        width: 2.5rem;
+    }
 }
 @media (max-width: 550px){
-    #form-container>h2{
-        font-size: 2rem;
-    }
+
 
     h2>.icones_conteudo{
         width: 2rem;
