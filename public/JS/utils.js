@@ -1,5 +1,14 @@
 import { initMenuHamburguer } from './header.js';
 
+export function getBasePath() {
+    if (window.location.hostname === "adopets-eight.vercel.app") {
+      return "";  
+    } else {
+      return "/public"; 
+    }
+  }
+  
+
 
 export function getAssetBasePath() {
     const path = window.location.pathname;
@@ -48,12 +57,19 @@ export function getAssetBasePath() {
     linkElement.addEventListener('click', function(event) {
       const currentPath = window.location.pathname.split("/").slice(-1)[0].split("#")[0];
       console.log("Página atual:", currentPath);
+      
+      // Verifica a página de destino
       const targetPage = linkElement.getAttribute("href").split("/").slice(-1)[0].split("#")[0];
       console.log("Página de destino:", targetPage);
+      
+      // Se a página de destino for a mesma, previne o redirecionamento
       if (currentPath === targetPage) {
         event.preventDefault();  // Impede o redirecionamento
         console.log("Você já está na página " + targetPage);
         window.scrollTo(0, 0);  // Rolagem até o topo (opcional)
+      } else {
+        // Caso contrário, o redirecionamento é permitido
+        console.log("Redirecionando para " + targetPage);
       }
     });
   }

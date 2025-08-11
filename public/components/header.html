@@ -38,18 +38,21 @@
   </header>
 
     <script type="module">
-      import { preventRedirectionToSamePage } from "../JS/utils.js"; 
+      import { preventRedirectionToSamePage, getBasePath } from "../JS/utils.js"; 
       
       document.addEventListener("DOMContentLoaded", function () {
         const menuToggle = document.getElementById('menu-toggle');
         const listaHeader = document.querySelector('.lista_header');
+        const linkAdmin = document.getElementById('link-admin');
+        const basePath = getBasePath();
+        linkAdmin.href = basePath + "/pages/admin/admin.html";
   
         menuToggle.addEventListener('click', () => {
           listaHeader.classList.toggle('ativo');
         });
   
         const menuLinks = document.querySelectorAll('.nav_header');
-      menuLinks.forEach(link => {
+        menuLinks.forEach(link => {
         preventRedirectionToSamePage(link);
       });
       });
