@@ -59,7 +59,7 @@ input[type="file"] {
 @media (max-width: 900px){
 
     #form-container{
-        width: 100%;
+        width: 95%;
     }
     h2>.icones_conteudo{
         width: 2.5rem;

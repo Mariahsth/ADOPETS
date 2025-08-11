@@ -10,6 +10,8 @@
     align-items: center;
     background-color: var(--background-color-body);
 }
+
+
 .about-section h1{
     color: var(--black-smooth-color);
     margin-bottom: 2rem;
@@ -18,6 +20,8 @@
 .about-section  p{
     color: var(--black-smooth-color);
     font-size: 22px;
+    font-family: var(--font-primary);
+
 }
 
 .container_frase_impacto{
@@ -190,11 +194,4 @@
     .about-section>p{
         width: 80%;
     }
-  }
-  @media (max-width: 480px) {
-
-   
-  }
-  @media (max-width: 350px) {
-
   }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feiras de Adoção | Adopets</title>
+  <link rel="stylesheet" href="../../components/header.css" />
+  <link rel="stylesheet" href="../../components/footer.css" />
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="feiras.css">
+</head>
+<body>
+  <header>
+    <div id="header-container"></div>
+  </header>
+
+  <main >
+    <section class="feiras-section">
+        <h2>Feiras de Adoção</h2>
+        <img src="../../assets/pets2.png" alt="pets"/>
+        <div class="feiras-introducao">
+            <p>Nossas feiras de adoção são momentos especiais em que abrimos as portas para que animais resgatados encontrem famílias responsáveis. Além da adoção, as feiras são oportunidades para conscientizar, compartilhar histórias e criar conexões que mudam vidas.</p>
+            <h3>O que você vai encontrar</h3>
+            <ul>
+                <li>Animais vacinados, vermifugados e prontos para adoção.</li>
+                <li>Equipe e voluntários preparados para orientar no processo.</li>
+                <li>Ponto de arrecadação de ração, medicamentos e acessórios.</li>
+                <li>Espaço de convivência e interação com os pets.</li>
+
+            </ul>
+        </div>
+        <div class="proximas-feiras-container">
+            <img class="proximas-feiras-container-img" src="../../assets/calendar.png" alt="calendario"/>
+            <div class="proximas-feiras-texto">
+                <h2>Próximas Feiras</h2>
+                <h3>Acompanhe as datas e locais na nossa rede social:</h3>
+                <button>
+                    <img class="icone-instagram" src="../../assets/instagram-logo.svg"  alt="Instagram logo"/>
+                    Instagram
+                </button>
+            </div>
+        </div>
+        <h2>Galeria</h2>
+        <div class="galeria-container">
+            <img src="../../assets/feira12.jpg" alt="foto feira"/>
+            <img src="../../assets/feira11.jpg" alt="foto feira"/>
+            <img src="../../assets/feira10.jpg" alt="foto feira"/>
+            <img src="../../assets/feira9.jpg" alt="foto feira"/>
+            <img src="../../assets/feira8.jpg" alt="foto feira"/>
+            <img src="../../assets/feira7.jpg" alt="foto feira"/>
+            <img src="../../assets/feira6.jpg" alt="foto feira"/>
+            <img src="../../assets/feira5.jpg" alt="foto feira"/>
+            <img src="../../assets/feira4.jpg" alt="foto feira"/>
+            <img src="../../assets/feira3.jpg" alt="foto feira"/>
+            <img src="../../assets/Hanna.jpg" alt="foto feira"/>
+            <img src="../../assets/dogsofa.jpg" alt="foto feira"/>
+
+        </div>
+    </section>
+
+  </main>
+
+  <footer >
+    <div id="rodape-container"></div>
+  </footer>
+  <script type="module">
+    import { loadHeaderFooter } from '../../JS/utils.js';
+    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
+
+  </script>
+
+  <script type="module" src="../../JS/api.js"></script>
+  <script type="module" src="../../JS/ui.js"></script>
+  <script type="module" src="../../JS/main.js"></script>
+</body>
+</html>
