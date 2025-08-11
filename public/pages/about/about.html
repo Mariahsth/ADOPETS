@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Animais | Adopets</title>
+  <link rel="stylesheet" href="../../components/header.css" />
+  <link rel="stylesheet" href="../../components/footer.css" />
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  <header>
+    <div id="header-container"></div>
+  </header>
+
+  <main >
+    <section class="about-section">
+      <h1>Quem somos</h1>
+      <div class="container_frase_impacto">
+        <img src="../../assets/pets.png" alt="pet"/>
+        <p>Somos apaixonados por transformar vidas — tanto dos animais quanto das pessoas que os acolhem. Desde o nosso início, nosso objetivo é resgatar, cuidar e encontrar lares cheios de amor para cães e gatos que precisam.</p>
+      </div>
+      <div class="container_missao_visao_valores">
+        
+        <div class="missao_visao_valores">
+          <h2>Missão</h2>
+          <p>
+            Resgatar, cuidar e promover a adoção responsável de animais.
+          </p>
+        </div>
+        <div class="missao_visao_valores visao">
+          <h2>Visão</h2>
+          <p>
+            Um mundo onde todos os animais tenham um lar seguro e amoroso.
+          </p>
+        </div>
+        <div class="missao_visao_valores">
+          <h2>Valores</h2>
+          <p>
+            Amor, respeito, responsabilidade, transparência e dedicação.
+          </p>
+        </div>
+
+      </div>
+      <div class="container_nossa_historia">
+        <h2>Nossa história</h2>
+        <div class="nossa_historia">
+          <p>Tudo começou em 2017,  quando um grupo de amigos decidiu agir diante da situação de abandono animal na cidade. Com poucos recursos, mas com muita coragem, sensibilidade e um desejo genuíno de fazer a diferença, realizaram os primeiros resgates. Aos poucos, pessoas de diferentes bairros se uniram, oferecendo tempo, lares temporários, doações e serviços veterinários. Hoje, somos uma rede de voluntários, parceiros e apoiadores que compartilham o mesmo objetivo: salvar vidas, proporcionar dignidade e construir um futuro melhor para cães e gatos que merecem uma segunda chance.</p>
+          <img src="../../assets/dog.png" alt="pet"/>
+        </div>
+      </div>
+      <div class="container_impacto">
+        <h2>Impacto</h2>
+        <div class="impacto">
+          <img src="../../assets/goal.png" alt="pet"/>
+          <div class="impacto_container_texto">
+            <h3>Mais de 500 animais resgatados</h3>
+            <h3>350 adoções responsáveis realizadas</h3>
+            <h3>20 voluntários ativos</h3>
+
+          </div>
+
+
+        </div>
+      </div>
+      <p>Quer fazer parte dessa história? Seja voluntário, apadrinhe um animal ou adote. Juntos, podemos mudar vidas!</p>
+    </section>
+  </main>
+
+  <footer >
+    <div id="rodape-container"></div>
+  </footer>
+  <script type="module">
+    import { loadHeaderFooter } from '../../JS/utils.js';
+    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
+
+  </script>
+
+  <script type="module" src="../../JS/api.js"></script>
+  <script type="module" src="../../JS/ui.js"></script>
+  <script type="module" src="../../JS/main.js"></script>
+</body>
+</html>

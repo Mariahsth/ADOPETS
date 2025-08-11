@@ -1,0 +1,200 @@
+.about-section{
+    padding-top: 4rem;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    margin: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color-body);
+}
+.about-section h1{
+    color: var(--black-smooth-color);
+    margin-bottom: 2rem;
+}
+
+.about-section  p{
+    color: var(--black-smooth-color);
+    font-size: 22px;
+}
+
+.container_frase_impacto{
+    width: 70%;
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.container_frase_impacto >img{
+    width: 500px;
+    height: auto;
+}
+
+.container_missao_visao_valores{
+    width: 100vw;
+    background-color: var(--quaternary-color);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.377);
+}
+
+.missao_visao_valores{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.missao_visao_valores>h2{
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.missao_visao_valores >p {
+    text-align: center;
+}
+
+.visao{
+    flex-direction: row-reverse;
+}
+
+.container_nossa_historia{
+    width: 70%;
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.nossa_historia{
+    display: flex;
+    align-items: center;
+}
+.nossa_historia > img{
+    width: 500px;
+}
+
+.container_impacto{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.impacto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5rem;
+    margin: 4rem;
+    width: 70%;
+}
+.impacto_container_texto > h3{
+    font-size: 32px;
+    width: 100%;
+    color: var(--quaternary-color);
+    font-weight: bold;
+}
+.impacto > img{
+    width: 500px;
+}
+
+.impacto_container_texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align:left;
+    gap: 3rem;
+}
+
+.about-section>p{
+    width: 50%;
+    text-align: center;
+    margin: 5rem 0;
+}
+@media (max-width: 1080px) {
+    .container_frase_impacto{
+        flex-direction: column;
+    }
+
+    .nossa_historia{
+        flex-direction: column-reverse;
+    }
+
+    .impacto{
+        flex-direction: column;    
+    }
+    .impacto_container_texto{
+        text-align:center;
+    }
+
+  }
+  
+  @media (max-width: 700px) {
+    .container_nossa_historia{
+        max-width: 100vw;
+        width: 100%;
+    }
+    .impacto{
+        gap: 3rem;
+        margin: 3rem
+    }
+    
+    .impacto > img{
+        width: 300px;
+    }
+
+    .container_impacto{
+        gap: 1rem;
+        margin-top: 4rem;
+    }
+  }
+  @media (max-width: 550px) {
+    .about-section h1{
+        font-size: 3rem;
+    }
+    .container_frase_impacto{
+        width: 90%;
+    }
+    .container_frase_impacto >img{
+        width: 300px;
+    }
+
+    .about-section  p{
+        font-size: 18px;
+    }
+
+    .missao_visao_valores{
+        gap: 0rem;
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
+
+    .nossa_historia > img{
+        width: 300px;
+    }
+    .impacto_container_texto > h3{
+        font-size: 22px;
+    }
+
+    .about-section>p{
+        width: 80%;
+    }
+  }
+  @media (max-width: 480px) {
+
+   
+  }
+  @media (max-width: 350px) {
+
+  }

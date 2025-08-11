@@ -1,6 +1,6 @@
 :root{
-    --background-color-body: rgba(207, 207, 205, 0.589);
-    --primary-color: #f7f5f0a8;
+    --background-color-body: rgba(255, 255, 255, 0.589);
+    --primary-color: rgb(247, 245, 242);
     --secundary-color: #91633db2;
     --terciary-color: rgba(165, 132, 94, 0.486);
     --quaternary-color: #577b8d8e;
