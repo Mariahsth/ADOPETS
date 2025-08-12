@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcerias | Adopets</title>
+  <link rel="stylesheet" href="../../components/header.css" />
+  <link rel="stylesheet" href="../../components/footer.css" />
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="partners.css">
+</head>
+<body>
+  <header>
+    <div id="header-container"></div>
+  </header>
+
+  <main >
+    <section class="partners-section">
+        <div class="intro-container">
+            <h1>Parcerias</h1>
+            <div class="linha"></div>
+            <div class="intro">
+                <img src="../../assets/partners.png" alt="aperto de mãos"/>
+
+                <div class="intro-texto">
+                    <h3>Seja uma empresa parceira e faça a diferença com a gente!</h3>
+                    <p>Nossas parcerias tornam possível oferecer mais cuidados, vacinas e eventos de adoção para nossos peludinhos. Trabalhamos junto a empresas, ONGs e voluntários para transformar vidas</p>
+    
+                </div>
+            </div>
+        </div>
+        <div class="tipos-parcerias-container">
+            <h3>Tipos de Parceria</h3>
+            <div class="linha"></div>
+            <div class="tipos-parcerias-grid">
+                <div class="tipo-parceria">
+                    <h3>Parcerias financeiras</h3>
+                    <p>Doações mensais ou patrocínios de eventos</p>
+                </div>
+                <div class="tipo-parceria">
+                    <h3>Parcerias de produtos/serviços</h3>
+                    <p>Ração, medicamentos, transporte, ensaio fotográfico dos animais</p>
+                </div>
+                <div class="tipo-parceria">
+                    <h3>Parcerias em eventos</h3>
+                    <p>Espaço físico, divulgação, logística</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="beneficios tipos-parcerias-container">
+            <h3>Benefícios</h3>
+            <div class="linha"></div>
+            <div class="beneficios-grid tipos-parcerias-grid">
+                <div class="tipo-parceria">
+                    <h3>Divulgação da marca nos eventos</h3>
+                </div>
+                <div class="tipo-parceria">
+                    <h3>Logotipo no site e redes sociais</h3>
+                </div>
+                <div class="tipo-parceria">
+                    <h3>Certificado de empresa amiga dos animais</h3>
+                </div>
+            </div>
+        </div>
+        <div class="tipos-parcerias-container">
+            <h3>Junte-se a nós</h3>
+            <div class="linha"></div>
+            <div class="formulario">
+
+                <form>
+                    <h4>Entre em contato:</h4>
+                    <label 
+                      for="empresa">
+                        Nome:
+                      </label>
+                    <input 
+                      type="text" 
+                      name="nome"
+                      placeholder="Insira o nome para contato" 
+                      required />
+                    <label 
+                      for="empresa">
+                        Empresa:
+                      </label>
+                    <input 
+                      type="text" 
+                      name="empresa"
+                      placeholder="Insira o nome da empresa" 
+                      required />
+                    <label 
+                      for="email">
+                        Endereço de email:
+                      </label>
+                    <input 
+                      type="text" 
+                      name="email"
+                      placeholder="Insira o endereço de email" 
+                      required />
+                    <label 
+                      for="mensagem">
+                        Mensagem
+                      </label>
+                    <textarea 
+                      name="mensagem"
+                      required ></textarea>
+                      <button>Quero ser parceiro</button>
+                </form>
+            </div>
+        </div>
+
+
+        
+    </section>
+  </main>
+
+  <footer >
+    <div id="rodape-container"></div>
+  </footer>
+  <script type="module">
+    import { loadHeaderFooter } from '../../JS/utils.js';
+    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
+
+  </script>
+
+  <script type="module" src="../../JS/api.js"></script>
+  <script type="module" src="../../JS/ui.js"></script>
+  <script type="module" src="../../JS/main.js"></script>
+</body>
+</html>

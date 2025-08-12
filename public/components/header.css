@@ -14,7 +14,7 @@ header {
   box-sizing: border-box;
   background-color: var(--primary-color);
   z-index: 1000;
-  border-bottom: 1px solid var(--terciary-color);
+  border-bottom: 1px solid transparent;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
 }
 .logo_header {
@@ -29,7 +29,7 @@ header {
   flex-direction: column;
   justify-content: center;
   text-decoration: none;
-  color: var(--black-smooth-color);
+  color: var(--black-color);
   font-weight: 700;
   font-size: 24px;
 }
@@ -58,7 +58,7 @@ header {
 
 .nav_header {
   text-decoration: none;
-  color: var(--secundary-color);
+  color: var(--black-color);
   display: flex;
   flex-direction: column;
   justify-content: center;

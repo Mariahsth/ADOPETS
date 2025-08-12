@@ -13,8 +13,8 @@
 
 
 .about-section h1{
-    color: var(--black-smooth-color);
     margin-bottom: 2rem;
+    font-weight: bold;
 }
 
 .about-section  p{

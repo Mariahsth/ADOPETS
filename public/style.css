@@ -1,6 +1,6 @@
 :root{
     --background-color-body: rgba(255, 255, 255, 0.589);
-    --primary-color: rgb(247, 245, 242);
+    --primary-color: rgb(255, 255, 255);
     --secundary-color: #91633db2;
     --terciary-color: rgba(165, 132, 94, 0.486);
     --quaternary-color: #577b8d8e;
@@ -38,10 +38,7 @@ main {
     
 }
 
-.slogan{
-    font-size: 20px;
-    padding-top: 0.2rem;
-}
+
 
 
 .banner {
@@ -73,20 +70,22 @@ main {
     z-index: -1;
   }
 
-h1, h2{
-    font-family: var(--font-primary);
-    font-weight: 300;
-}
-
 h1{
     font-size: 5rem;
-    color: var(--primary-color);
+    color: var(--black-smooth-color);
+    font-family: var(--font-primary);
     display: flex;
     align-items: center;
+    font-weight: bold;
     margin-top: 1rem;
+    gap:0.5rem;
 
 }
-
+i {
+    color: var(--black-smooth-color); 
+    height: auto;
+    width: 1rem; 
+  }
 .container_texto>.fraseDeEfeito{
     padding: 0;
     color: var(--black-smooth-color);
@@ -99,11 +98,7 @@ h1{
     font-weight: bold;
     font-family: var(--font-primary);
 }
-.passo-a-passo_descrição p{
-    color: var(--black-smooth-color);
-    font-family: var(--font-primary);
-    font-size: 18px;
-}
+
 .passo-a-passo_descrição{
     margin: 2rem 0;
 }
@@ -208,6 +203,8 @@ h2{
     justify-content: center;
     align-items: center;
     flex-direction: column-reverse;
+    font-family: var(--font-primary);
+    font-weight: 300;
 
 }
 
@@ -223,10 +220,7 @@ h3{
 
 }
 
-.icone-patas{
-    width: auto;
-    height: 1em;
-}
+
 
 .container-lista{
     margin-top: 5rem;
@@ -454,9 +448,7 @@ h3{
     .passo-a-passo_descrição h3{
         font-size: 18px;
     }
-    .passo-a-passo_descrição p{
-        font-size: 12px;
-    }
+
     .passo-a-passo_descrição{
         margin: 0;
         margin-bottom: 2rem;
@@ -518,10 +510,6 @@ h3{
         font-size: 2rem;
     }
 
-    .slogan{
-        font-size: 16px;
-    }
-
     .banner {
         height: 150px;
         margin-top: 40px;
@@ -529,11 +517,6 @@ h3{
 
     .passo-a-passo_descrição h3{
         font-size: 14px;
-        margin-top: 0.5rem;
-
-    }
-    .passo-a-passo_descrição p{
-        font-size: 10px;
         margin-top: 0.5rem;
 
     }

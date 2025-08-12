@@ -31,6 +31,7 @@ export function getAssetBasePath() {
         const linkAdmin = document.getElementById('link-admin');
         const linkAbout = document.getElementById('link-about');
         const linkFeiras = document.getElementById('link-feiras');
+        const linkPartners = document.getElementById('link-partners');
 
         const basePath = getBasePath(); 
   
@@ -42,6 +43,9 @@ export function getAssetBasePath() {
         }
         if (linkFeiras) {
           linkFeiras.href = basePath + "/pages/feiras/feiras.html";
+        }
+        if (linkPartners) {
+          linkPartners.href = basePath + "/pages/partners/partners.html";
         }
   
         const linkInicio = document.getElementById("link-inicio");
