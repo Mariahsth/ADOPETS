@@ -25,14 +25,53 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
     <title>ADOPET</title>
   </head>
   <body>
     <div id="header-container"></div>
     <main>
-      <div class="banner">
-        <div class="banner-bg"></div>
-        <h1>Adopets<i class="fa-solid fa-paw"></i></h1>
+
+      <div class="banner swiper">
+        <div class="swiper-wrapper">
+
+
+          <div class="swiper-slide">
+            <div class="banner-bg" style="background-image: url('./assets/banner10.jpg');"></div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="banner-bg" style="background-image: url('./assets/amarelo.jpg');"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="banner-bg" style="background-image: url('./assets/banner13.jpg');"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="banner-bg" style="background-image: url('./assets/banner4.jpg');"></div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="banner-bg" style="background-image: url('./assets/banner3.jpg');"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="banner-bg" style="background-image: url('./assets/banner12.jpg');"></div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="banner-bg" style="background-image: url('./assets/banner7.jpg');"></div>
+          </div>
+
+        </div>
+      
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      
+        <div class="swiper-pagination"></div>
+      
+        <h1>Adopets <i class="fa-solid fa-paw"></i></h1>
       </div>
       <section class="passo-a-passo">
         <div class="passo-a-passo_descrição">
@@ -163,5 +202,7 @@
       loadHeaderFooter("./components/header.html", "./components/footer.html", "header-container", "rodape-container");
   
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
   </body>
 </html>

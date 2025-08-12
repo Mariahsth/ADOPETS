@@ -61,3 +61,20 @@ function init() {
 
 
 init();
+
+
+const swiper = new Swiper('.swiper', {
+  loop: true, // Faz o carrossel rodar em loop infinito
+  autoplay: {
+    delay: 5000, // 5 segundos
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
