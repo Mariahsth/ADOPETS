@@ -8,20 +8,33 @@
 }
 
 .lista-filtros-item{
-    background-color: var(--terciary-color);
-    padding: 1em 2em;
+    padding: 1rem 2rem;
     border-radius: 8px;
-    border: 1px solid var(--black-smooth-color);
-    font-family: var(--font-primary);
-    font-weight: 700;
-    color: var(--black-smooth-color);
-    font-size: 15px;
+    border: 1px solid var(--quaternary-color);
+    background: transparent;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    color: var(--quaternary-color);
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .lista-filtros-item:hover{
-    background-color: var(--background-color-body);
+    transform: scale(1.05);
+    border: 1px solid var(--black-smooth-color);
+    color: var(--black-smooth-color);
+    background: var(--quaternary-color);
+}
+.lista-filtros-item.ativo{
+    border: 1px solid var(--black-smooth-color);
+    color: var(--black-smooth-color);
+    background: var(--quaternary-color);
+    transform: scale(1.05);
+}
+
+.lista-filtros-item.ativo:hover {
     border: 1px solid var(--quaternary-color);
+    background: transparent;
     color: var(--quaternary-color);
 }
 

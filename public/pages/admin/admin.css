@@ -64,7 +64,7 @@
 }
 .nome_pet{
     font-weight: 600;
-    color: var(--secundary-color);
+    color: var(--black-smooth-color);
     font-family: var(--font-primary);
 }
 .form_placeholder {
@@ -98,7 +98,7 @@
 }
 
 .lista-item-pet{
-    background-color: var(--terciary-color);
+    background-color: var(--quaternary-color);
     border-radius: 8px;
     list-style: none;
     width: 80%;
@@ -157,7 +157,7 @@ input[type="file"] {
 }
 
 .parametro-item-lista{
-    color: var(--secundary-color);
+    color: var(--black-smooth-color);
     font-family: var(--font-primary);
 }
 
