@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pets Disponíveis | Adopets</title>
+  <link rel="stylesheet" href="../../components/header.css" />
+  <link rel="stylesheet" href="../../components/footer.css" />
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../admin/admin.css">
+  <link rel="stylesheet" href="./pets.css">
+</head>
+<body>
+  <header>
+    <div id="header-container"></div>
+  </header>
+
+  <main class="container-principal">
+    <section class="container-principal" id="cadastro">
+
+
+      <section class="container-lista">
+        <h2 id="pets">Pets disponíveis para adoção</h2>
+        <h3>Filtrar por:</h3>
+        <div class="lista-filtros">
+          <button id="filtro-favoritos" class="lista-filtros-item">Favoritos</button></li>
+        </div>
+
+      <ul id="lista-pets"></ul>
+      </section>
+  </main>
+
+  <footer >
+    <div id="rodape-container"></div>
+  </footer>
+  <script type="module">
+    import { loadHeaderFooter } from '../../JS/utils.js';
+    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
+
+  </script>
+
+  <script type="module" src="../../JS/api.js"></script>
+  <script type="module" src="../../JS/ui.js"></script>
+  <script type="module" src="../../JS/main.js"></script>
+  <script>localStorage.setItem('isAdmin', 'false');</script>
+
+</body>
+</html>

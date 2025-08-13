@@ -1,6 +1,12 @@
 
 import { atualizaPet, atualizarFavorito, cadastrarPet, excluirPet, listarPets } from "./api.js";
 
+const isAdmin = () => {
+
+  return localStorage.getItem('isAdmin') === 'true'; 
+};
+
+
 
 export const renderPetsList = (pets) => {
   const petsListElement = document.getElementById('lista-pets');
@@ -47,36 +53,41 @@ export const renderPetsList = (pets) => {
         <p class="parametro-item-lista">Comentários:</p><p> ${pet.comentarios}</p>
       </div>
       <div class="div-botoes">
+      ${isAdmin() ? `
         <button class="botao_excluir">
           <img src="../../assets/icone-excluir.png" class="botao_icone">
         </button>
-          <p class="nome_botao"> Excluir </p>
-        </button>
+        <p class="nome_botao"> Excluir </p>
         <button class="botao_editar" data-id="${petId}" >
-          <img src="../../assets/icone-editar.png" class=botao_icone>
+          <img src="../../assets/icone-editar.png" class="botao_icone">
         </button>
-          <p class="nome_botao"> Editar </p>
-        </button>
-        <button class="botao-favoritar">
-          <img src=${pet.favorito? "../../assets/favorite.png":"../../assets/favorite_outline.png"} class="botao_icone">
-        </button>
-          <p class="nome_botao"> Favoritar </p>
-        </button>
-      </div>
-    `;
+        <p class="nome_botao"> Editar </p>
+      ` : `<button class="botao-favoritar">
+        <img src=${pet.favorito ? "../../assets/favorite.png" : "../../assets/favorite_outline.png"} class="botao_icone">
+      </button>
+      <p class="nome_botao"> Favoritar </p>`}
+      
+    </div>
+  `;
 
     
     
     petsListElement.appendChild(petElement);
 
     const editarBtn = petElement.querySelector('.botao_editar');
-    editarBtn.addEventListener('click', () => editarPets(pet));
-    
+    if (editarBtn) {
+      editarBtn.addEventListener('click', () => editarPets(pet));
+    }
+
     const excluirBtn = petElement.querySelector('.botao_excluir');
-    excluirBtn.addEventListener('click', () => excluirPet(pet));
-    
+    if (excluirBtn) {
+      excluirBtn.addEventListener('click', () => excluirPet(pet));
+    }
+
     const favoritarBtn = petElement.querySelector('.botao-favoritar');
-    favoritarBtn.addEventListener('click', () => favoritarPet(pet));
+    if (favoritarBtn) {
+      favoritarBtn.addEventListener('click', () => favoritarPet(pet));
+    }
     
   });
 };

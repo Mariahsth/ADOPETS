@@ -17,7 +17,7 @@
   <main class="container-principal">
     <section class="container-principal" id="cadastro">
           <section id="form-container">
-            <h2><img src="../../assets/note-pencil.svg" class="icones_conteudo"/>  Cadastro de animal</h2>
+            <h2> Cadastro de animal</h2>
 
               <form id="pet-form" enctype="multipart/form-data">
                 <input type="hidden" id="pet-id" />
@@ -206,11 +206,7 @@
       </section>
 
       <section class="container-lista">
-        <h2 id="pets"><img src="../../assets/paw-print.svg" class="icones_conteudo"/>Pets disponíveis para adoção</h2>
-        <h3>Filtrar por:</h3>
-        <div class="lista-filtros">
-          <button id="filtro-favoritos" class="lista-filtros-item">Favoritos</button></li>
-        </div>
+        <h2 id="pets">Pets disponíveis para adoção</h2>
 
       <ul id="lista-pets"></ul>
       </section>
@@ -228,5 +224,6 @@
   <script type="module" src="../../JS/api.js"></script>
   <script type="module" src="../../JS/ui.js"></script>
   <script type="module" src="../../JS/main.js"></script>
+  <script>localStorage.setItem('isAdmin', 'true');</script>
 </body>
 </html>

@@ -27,11 +27,8 @@
     width: 60%;
 
 }
-.icones_conteudo{
-    width: 3rem;
-}
+
 .container-lista{
-    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +36,7 @@
     max-width: 100%;
 }
 #pets{
-    padding-top: 8rem;
+    padding-top: 2rem;
 }
 .campo_carregar_imagem {
     background-color: var(--primary-color);
@@ -81,36 +78,15 @@
 
 }
 
-.lista-filtros{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 2em;
-    list-style-type: none;
-    margin: 1rem 0 2rem 0;
-}
+
 .ativo{
     background-color: var(--background-color-body);
     border: 1px solid var(--quaternary-color);
     color: var(--quaternary-color);
 }
-.lista-filtros-item{
-    background-color: var(--terciary-color);
-    padding: 1em 2em;
-    border-radius: 8px;
-    border: 1px solid var(--black-smooth-color);
-    font-family: var(--font-primary);
-    font-weight: 700;
-    color: var(--black-smooth-color);
-    font-size: 15px;
-    cursor: pointer;
-}
 
-.lista-filtros-item:hover{
-    background-color: var(--background-color-body);
-    border: 1px solid var(--quaternary-color);
-    color: var(--quaternary-color);
-}
+
+
 
 #lista-pets{
     gap: 3em;
@@ -218,10 +194,7 @@ input[type="file"] {
     color: var(--background-color-body);
 }
 @media (max-width: 1180px){
-    .lista-filtros{
-        gap: 1em;
 
-    }
     #lista-pets{
         width: auto;
     }
@@ -244,19 +217,9 @@ input[type="file"] {
     #form-container{
         width: 95%;
     }
-    h2>.icones_conteudo{
-        width: 2.5rem;
-    }
+
 }
 @media (max-width: 700px){
-
-    .lista-filtros-item{
-        max-width: 20%;
-        display: flex;
-        justify-content: center;
-        padding: 1em 1.5em;
-        font-size: 0.8rem;
-    }
 
     #lista-pets{
         gap:0;
@@ -266,10 +229,6 @@ input[type="file"] {
 }
 @media (max-width: 550px){
 
-
-    h2>.icones_conteudo{
-        width: 2rem;
-    }
 
     label{
         font-size: 0.9rem;
@@ -290,12 +249,6 @@ input[type="file"] {
     #lista-pets{
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
-
-    .lista-filtros{
-        gap: 0.5em;
-
-    }
-
 }
 
 @media (max-width: 290px){
