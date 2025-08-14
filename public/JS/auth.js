@@ -1,3 +1,5 @@
+import { getBasePath } from "./utils";
+
 const basePath = getBasePath(); 
 
 
