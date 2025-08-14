@@ -8,6 +8,7 @@
 }
 .feiras-section h2{
     font-weight: bold;
+    color: var(--quaternary-color);
 }
 .feiras-section p{
     color: var(--black-smooth-color);
@@ -19,7 +20,7 @@
 }
 
 .feiras-introducao{
-    width: 50%;
+    width: 90%;
     border: 1px solid var(--primary-color);
     border-radius: 16px;
     padding: 2rem;
@@ -28,7 +29,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    font-size: 18px;
+    background-color: var(--primary-color);
+
 }
 .feiras-introducao h3{
     font-weight: bold;
@@ -72,7 +76,7 @@
     gap: 0.5rem; 
     width: auto; 
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
     color: var(--quaternary-color);
 }
 .proximas-feiras-texto button:hover{
@@ -89,9 +93,10 @@
 }
 
 
-.fa-instagram {
-    fill: var(--quaternary-color);
+.fa-instagram{
+    color: var(--quaternary-color);
   }
+
 
 
 .galeria-container{
@@ -103,6 +108,8 @@
     overflow: hidden;
     margin: 0 auto;
     padding: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 .galeria-container img{
     width: 500px;

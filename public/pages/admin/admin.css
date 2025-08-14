@@ -17,7 +17,9 @@
     border-radius: 16px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     margin-bottom: 1rem;
-
+}
+#form-container >h2{
+    color: var(--quaternary-color);
 }
 
 #pet-form {
@@ -37,9 +39,12 @@
 }
 #pets{
     padding-top: 2rem;
+    color: var(--quaternary-color);
+    font-weight: bold;
 }
 .campo_carregar_imagem {
     background-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .form-botoes{
@@ -75,9 +80,11 @@
     color: var(--quaternary-color);
     background-color: white;
     font-weight: 500;
-
 }
 
+select{
+    cursor: pointer;
+}
 
 .ativo{
     background-color: var(--background-color-body);
@@ -128,7 +135,7 @@
     margin-top: 2rem;
 }
 label{
-    color: var(--terciary-color);
+    color: var(--black-smooth-color);
     font-family: var(--font-primary);
     font-weight: 600;
     
@@ -143,7 +150,7 @@ label{
 
 input[type="file"] {
     background-color: white;
-    
+    cursor: pointer;
   }
 
   .linha>p{
