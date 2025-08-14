@@ -47,14 +47,21 @@
   <script type="module" src="../../JS/api.js"></script>
   <script type="module" src="../../JS/ui.js"></script>
   <script type="module" src="../../JS/main.js"></script>
-  <script>
+  
+  <script type="module">
+    import { getBasePath } from "../../JS/utils.js";
+
+    const basePath = getBasePath(); 
+
+    const API_URL = "https://adopets-ndrs.onrender.com"; 
+
     document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
     
-    const resposta = await fetch('http://localhost:3000/login', {
+    const resposta = await fetch(`${API_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
@@ -63,7 +70,7 @@
     if (resposta.ok) {
         const { token } = await resposta.json();
         localStorage.setItem('token', token);
-        window.location.href = '/public/pages/admin/admin.html';
+        window.location.href = basePath + '/pages/admin/admin.html';
     } else {
         alert('Login inválido');
     }

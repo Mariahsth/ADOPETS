@@ -1,9 +1,10 @@
-import { getBasePath } from "./utils";
+import { getBasePath } from "./utils.js";
 
-const basePath = getBasePath(); 
+const API_URL = "https://adopets-ndrs.onrender.com"; 
 
 
 export async function verificarToken() {
+  const basePath = getBasePath(); 
     const token = localStorage.getItem('token');
   
     if (!token) {
@@ -12,7 +13,7 @@ export async function verificarToken() {
     }
   
     try {
-      const res = await fetch('http://localhost:3000/admin', {
+      const res = await fetch(`${API_URL}/admin`, {
         headers: { 'Authorization': 'Bearer ' + token }
       });
   
