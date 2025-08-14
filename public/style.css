@@ -119,13 +119,15 @@ i {
 }
 
 .passo-a-passo_descrição h3 {
-  color: var(--black-smooth-color);
-  font-weight: bold;
+  color: var(--black-color);
+  font-weight: 500;
   font-family: var(--font-primary);
+  font-size: 36px;
 }
 
 .passo-a-passo_descrição {
-  margin: 2rem 0;
+  margin: 3rem 0;
+  width: 60%;
 }
 
 .container_item_passo_a_passo {
@@ -133,27 +135,36 @@ i {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid transparent;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  width: 350px;
+  height: 250px;
+  background-image: linear-gradient(to bottom, #6990a386, var(--primary-color));
+  padding: 1rem;
 }
 
-.container_icone_passo_a_passo {
-  background-color: var(--quaternary-color);
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-}
+
 .icone_passo_a_passo {
   width: 50px;
+}
+.icone_seta {
+  width: 20px;
+}
+
+.passo-a-passo >h3{
+  width: 100%;
+  text-align: left;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: var(--black-color);
 }
 .container_texto {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin: 2rem;
+  gap: 1rem;
+  margin: 1rem;
   font-family: var(--font-primary);
   max-width: 100%;
 }
@@ -163,10 +174,15 @@ i {
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
+  width: 100vw;
   gap: 2rem;
-  border-radius: 16px;
+  margin: 4rem 0;
   padding: 2rem;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  background-image: linear-gradient(to bottom, #92adbb86, var(--quaternary-color));
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .lista {
   flex-direction: column;
@@ -176,9 +192,11 @@ i {
 
 .lista > .fraseDeEfeito {
   margin-top: 0.5em;
+  color: var(--black-smooth-color);
+  font-weight: 500;
 }
 
-.titulo_texto {
+.container_quem_pode_adotar > h3 {
   font-weight: 700;
   color: var(--black-smooth-color);
   font-family: var(--font-primary);
@@ -199,7 +217,7 @@ i {
 
 .fraseDeEfeito {
   font-size: 1rem;
-  color: var(--black-smooth-color);
+  color: var(--black-color);
   font-family: var(--font-primary);
   text-align: center;
   font-weight: 600;
@@ -207,8 +225,8 @@ i {
 }
 
 .frase_contato {
-  font-size: 1.2rem;
-  color: var(--black-smooth-color);
+  font-size: 1rem;
+  font-weight: 300;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -237,6 +255,16 @@ h3 {
   .container_texto {
     flex-direction: column;
   }
+  .container_item_passo_a_passo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .passo-a-passo >h3{
+    text-align: center;
+    margin: 2rem 0;
+
+  }
   .icone_seta {
     content: url("./assets/caret-double-down.svg");
   }
@@ -249,8 +277,6 @@ h3 {
   .fraseDeEfeito {
     margin-top: 0.5rem;
   }
-
-
 
   .container_quem_pode_adotar {
     margin-bottom: 5rem;
@@ -272,12 +298,15 @@ h3 {
   }
 
   .passo-a-passo_descrição h3 {
-    font-size: 18px;
+    font-size: 30px;
+    margin: 2rem 0;
   }
+
 
   .passo-a-passo_descrição {
     margin: 0;
     margin-bottom: 2rem;
+    width: 100%;
   }
 
   .banner {
@@ -318,8 +347,8 @@ h3 {
     font-size: 2rem;
   }
   .passo-a-passo_descrição h3 {
-    font-size: 14px;
-    margin-top: 0.5rem;
+    font-size: 24px;
+    margin: 3rem 0;
   }
 
   .fraseDeEfeito {
