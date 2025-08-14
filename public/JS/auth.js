@@ -32,5 +32,6 @@ export async function verificarToken() {
   export function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    alert("Realizando Logout")
     window.location.href = "../../pages/login/login.html";
   }

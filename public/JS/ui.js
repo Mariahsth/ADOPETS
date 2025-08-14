@@ -6,80 +6,92 @@ export const renderPetsList = (pets) => {
   const petsListElement = document.getElementById('lista-pets');
   if (!petsListElement) return;
   petsListElement.innerHTML = '';
-  
+
+  const token = localStorage.getItem('token');
+  const isAdmin = !!token;
+
+  const isPublicPage = window.location.pathname.includes('pets.html');
+
+
   pets.forEach(pet => {
     const petElement = document.createElement('li');
     const petId = pet._id ? pet._id.toString() : '';  
     petElement.setAttribute("id", petId);
     petElement.classList.add('lista-item-pet');
 
+    let botoesHTML = '';
 
-    petElement.innerHTML = `
-      <h3 class="nome_pet">${pet.nome}</h3>
-      <div class="linha">
-      <p class="parametro-item-lista">Espécie: </p><p> ${pet.especie}</p>
-      </div>
-      <div class="linha">
-      <p class="parametro-item-lista">Raça: </p><p> ${pet.raca}</p>
-      </div>
-      <div class="linha">
-      <p class="parametro-item-lista">Sexo: </p><p>${pet.sexo}</p>
-      </div>
-      <div class="linha">
-      <p class="parametro-item-lista">Porte:</p><p> ${pet.porte}</p>
-      </div>
-      <div class="linha">
-      <p class="parametro-item-lista">Idade: </p><p>${pet.idade} anos</p>
-      </div>
-      <div class="linha">
-      <p class="parametro-item-lista">Vacinado(a):</p><p> ${pet.vacinado}</p>
-      </div>
-      <div class="linha">
-      <p class="parametro-item-lista">Castrado(a):</p><p> ${pet.castrado}</p>
-      </div>
-      <div class="linha">
-      <p class="parametro-item-lista">Vermifugado(a): </p><p>${pet.vermifugado}</p>
-      </div>
-      <div >
-        <img class="imagem_pet" src=${pet.imagem} alt=${pet.nome}>
-      </div>
-      <div class="comentarios-container">
-        <p class="parametro-item-lista">Comentários:</p><p> ${pet.comentarios}</p>
-      </div>
-      <div class="div-botoes">
-      
+    if (isPublicPage) {
+      botoesHTML = `
+        <button class="botao-favoritar">
+          <img src=${pet.favorito ? "../../assets/favorite.png" : "../../assets/favorite_outline.png"} class="botao_icone">
+        </button>
+        <p class="nome_botao"> Favoritar </p>
+      `;
+    } else if (isAdmin) {
+      botoesHTML = `
         <button class="botao_excluir">
           <img src="../../assets/icone-excluir.png" class="botao_icone">
         </button>
         <p class="nome_botao"> Excluir </p>
-        <button class="botao_editar" data-id="${petId}" >
+        <button class="botao_editar" data-id="${petId}">
           <img src="../../assets/icone-editar.png" class="botao_icone">
         </button>
         <p class="nome_botao"> Editar </p>
-      <button class="botao-favoritar">
-        <img src=${pet.favorito ? "../../assets/favorite.png" : "../../assets/favorite_outline.png"} class="botao_icone">
-      </button>
-      <p class="nome_botao"> Favoritar </p>
-      
-    </div>`;
+      `;
+    }
+
+
+    petElement.innerHTML = `
+    <h3 class="nome_pet">${pet.nome}</h3>
+    <div class="linha">
+      <p class="parametro-item-lista">Espécie: </p><p> ${pet.especie}</p>
+    </div>
+    <div class="linha">
+      <p class="parametro-item-lista">Raça: </p><p> ${pet.raca}</p>
+    </div>
+    <div class="linha">
+      <p class="parametro-item-lista">Sexo: </p><p>${pet.sexo}</p>
+    </div>
+    <div class="linha">
+      <p class="parametro-item-lista">Porte:</p><p> ${pet.porte}</p>
+    </div>
+    <div class="linha">
+      <p class="parametro-item-lista">Idade: </p><p>${pet.idade} anos</p>
+    </div>
+    <div class="linha">
+      <p class="parametro-item-lista">Vacinado(a):</p><p> ${pet.vacinado}</p>
+    </div>
+    <div class="linha">
+      <p class="parametro-item-lista">Castrado(a):</p><p> ${pet.castrado}</p>
+    </div>
+    <div class="linha">
+      <p class="parametro-item-lista">Vermifugado(a): </p><p>${pet.vermifugado}</p>
+    </div>
+    <div>
+      <img class="imagem_pet" src=${pet.imagem} alt=${pet.nome}>
+    </div>
+    <div class="comentarios-container">
+      <p class="parametro-item-lista">Comentários:</p><p> ${pet.comentarios}</p>
+    </div>
+    <div class="div-botoes">
+      ${botoesHTML}
+    </div>
+  `;
 
     
     
     petsListElement.appendChild(petElement);
 
-    const editarBtn = petElement.querySelector('.botao_editar');
-    if (editarBtn) {
-      editarBtn.addEventListener('click', () => editarPets(pet));
-    }
+    if (!isPublicPage && isAdmin) {
+      const editarBtn = petElement.querySelector('.botao_editar');
+      if (editarBtn) editarBtn.addEventListener('click', () => editarPets(pet));
 
-    const excluirBtn = petElement.querySelector('.botao_excluir');
-    if (excluirBtn) {
-      excluirBtn.addEventListener('click', () => excluirPet(pet));
-    }
-
-    const favoritarBtn = petElement.querySelector('.botao-favoritar');
-    if (favoritarBtn) {
-      favoritarBtn.addEventListener('click', () => favoritarPet(pet));
+      const excluirBtn = petElement.querySelector('.botao_excluir');
+      if (excluirBtn) excluirBtn.addEventListener('click', () => excluirPet(pet));
+    } else if (isPublicPage) {
+      const favoritarBtn = petElement.querySelector('.botao-favoritar');
+      if (favoritarBtn) favoritarBtn.addEventListener('click', () => favoritarPet(pet));
     }
     
   });
