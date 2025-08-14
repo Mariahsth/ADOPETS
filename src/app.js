@@ -13,7 +13,6 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Permitir chamadas sem origin (como Postman) ou de origens permitidas
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {

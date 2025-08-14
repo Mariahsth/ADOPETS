@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcerias | Adopets</title>
+  <link rel="stylesheet" href="../../components/header.css" />
+  <link rel="stylesheet" href="../../components/footer.css" />
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <div id="header-container"></div>
+  </header>
+
+  <main >
+    <section class="login-section">
+      <div class="login-titulo-container">
+        <i class="fa-solid fa-lock fa-2x"></i>
+        <h2>Painel Admin</h2>
+      </div>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email" required>
+            <label for="password">Senha:</label>
+
+            <input type="password" id="senha" placeholder="Senha" required>
+            <button class="submit-login" type="submit">Entrar</button>
+            <button type="reset">Cancelar</button>
+          </form>
+          
+    </section>
+  </main>
+
+  <footer >
+    <div id="rodape-container"></div>
+  </footer>
+  <script type="module">
+    import { loadHeaderFooter } from '../../JS/utils.js';
+    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
+
+  </script>
+
+  <script type="module" src="../../JS/api.js"></script>
+  <script type="module" src="../../JS/ui.js"></script>
+  <script type="module" src="../../JS/main.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    
+    const resposta = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha })
+    });
+    
+    if (resposta.ok) {
+        const { token } = await resposta.json();
+        localStorage.setItem('token', token);
+        window.location.href = '/public/pages/admin/admin.html';
+    } else {
+        alert('Login inválido');
+    }
+    });
+  </script>
+</body>
+</html>

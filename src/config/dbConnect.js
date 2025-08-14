@@ -1,4 +1,3 @@
-//dbConnect.js
 import mongoose from "mongoose";        //Importando o mongoose
 
 async function conectaNaDatabase(){			//função assíncrona

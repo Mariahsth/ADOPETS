@@ -3,8 +3,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 3rem;
     max-width: 100vw;
+}
+
+.container_logout{
+    width: 70%;
+    align-items: start;
+    margin-top: 4rem;
+}
+.container_logout > button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    color: var(--black-smooth-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+.container_logout > button:hover{
+    transform: scale(1.1);
+    color: var(--quaternary-color);
 }
 #form-container{
     padding: 1% 0;
@@ -220,7 +239,9 @@ input[type="file"] {
 
 }
 @media (max-width: 900px){
-
+    .container_logout{
+        width: 90%;
+    }
     #form-container{
         width: 95%;
     }

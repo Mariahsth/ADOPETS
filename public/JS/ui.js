@@ -1,12 +1,6 @@
 
 import { atualizaPet, atualizarFavorito, cadastrarPet, excluirPet, listarPets } from "./api.js";
 
-const isAdmin = () => {
-
-  return localStorage.getItem('isAdmin') === 'true'; 
-};
-
-
 
 export const renderPetsList = (pets) => {
   const petsListElement = document.getElementById('lista-pets');
@@ -53,7 +47,7 @@ export const renderPetsList = (pets) => {
         <p class="parametro-item-lista">Comentários:</p><p> ${pet.comentarios}</p>
       </div>
       <div class="div-botoes">
-      ${isAdmin() ? `
+      
         <button class="botao_excluir">
           <img src="../../assets/icone-excluir.png" class="botao_icone">
         </button>
@@ -62,13 +56,12 @@ export const renderPetsList = (pets) => {
           <img src="../../assets/icone-editar.png" class="botao_icone">
         </button>
         <p class="nome_botao"> Editar </p>
-      ` : `<button class="botao-favoritar">
+      <button class="botao-favoritar">
         <img src=${pet.favorito ? "../../assets/favorite.png" : "../../assets/favorite_outline.png"} class="botao_icone">
       </button>
-      <p class="nome_botao"> Favoritar </p>`}
+      <p class="nome_botao"> Favoritar </p>
       
-    </div>
-  `;
+    </div>`;
 
     
     

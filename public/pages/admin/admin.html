@@ -15,6 +15,10 @@
   </header>
 
   <main class="container-principal">
+    <div class="container_logout">
+      <button id="botao-logout">&lt; Logout </button>
+
+    </div>
     <section class="container-principal" id="cadastro">
           <section id="form-container">
             <h2> Cadastro de animal</h2>
@@ -215,15 +219,18 @@
   <footer >
     <div id="rodape-container"></div>
   </footer>
-  <script type="module">
-    import { loadHeaderFooter } from '../../JS/utils.js';
-    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
-
-  </script>
-
   <script type="module" src="../../JS/api.js"></script>
   <script type="module" src="../../JS/ui.js"></script>
   <script type="module" src="../../JS/main.js"></script>
-  <script>localStorage.setItem('isAdmin', 'true');</script>
+  <script type="module">
+    import { loadHeaderFooter } from '../../JS/utils.js';
+    import { verificarToken, logout } from '../../JS/auth.js';
+    loadHeaderFooter('../../components/header.html', '../../components/footer.html', 'header-container', 'rodape-container');
+    verificarToken();
+
+    const logoutButton=document.getElementById("botao-logout");
+    logoutButton.addEventListener("click", logout)
+ </script>
+
 </body>
 </html>
